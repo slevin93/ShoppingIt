@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ShoppingIt.Crm.Api.Injection;
 using ShoppingIt.Crm.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,7 @@ namespace ShoppingIt.Crm.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ShoppingIt.Crm.Api", Version = "v1" });
@@ -36,6 +37,8 @@ namespace ShoppingIt.Crm.Api
 
             services.AddDbContext<ShoppingItContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                
+            services.InjectShoppingItServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
