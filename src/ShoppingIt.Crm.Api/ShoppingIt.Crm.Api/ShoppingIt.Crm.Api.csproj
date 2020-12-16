@@ -8,4 +8,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\ShoppingIt.Crm.Core\ShoppingIt.Crm.Core.csproj" />
+  </ItemGroup>
+
 </Project>
