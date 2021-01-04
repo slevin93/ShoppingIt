@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingIt.Crm.Infrastructure\ShoppingIt.Crm.Infrastructure.csproj" />
     <ProjectReference Include="..\..\ShoppingIt.Crm.Core\ShoppingIt.Crm.Core.csproj" />
+    <ProjectReference Include="..\..\ShoppingIt.Crm.Infrastructure\ShoppingIt.Crm.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
 {
-    [Authorize]
     [Route("api/products")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -28,6 +27,7 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// </summary>
         /// <param name="productModel">The details for the new product to add.</param>
         /// <returns>Return newly created product.</returns>
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<ProductDetails>> AddProduct(ProductModel productModel)
         {
