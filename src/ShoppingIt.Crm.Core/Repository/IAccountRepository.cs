@@ -14,13 +14,13 @@ namespace ShoppingIt.Crm.Core.Repository
         /// </summary>
         /// <param name="email">The email to search.</param>
         /// <returns>Returns account auth details where email addresses match query.</returns>
-        Task<AccountAuthDto> GetAccountByEmailAsync(string email);
+        Task<AccountAuthDetails> GetAccountByEmailAsync(string email);
 
         /// <summary>
         /// Registers new account.
         /// </summary>
         /// <param name="account">The account to save to database.</param>
         /// <returns>Returns newly created account.</returns>
-        Task<AccountDetailsDto> RegisterAsync(Account account);
+        Task<AccountDetails> RegisterAsync(Account account);
     }
 }

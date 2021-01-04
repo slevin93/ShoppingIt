@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Dto.Accounts
 {
     /// <summary>
-    /// Defines the account details to return from data access.
+    /// Define account details without credentials.
     /// </summary>
-    public class AccountAuthDto
+    public class AccountDetails
     {
         /// <summary>
         /// Gets or sets account id.
@@ -16,16 +20,6 @@ namespace ShoppingIt.Crm.Core.Dto.Accounts
         /// Gets or sets email.
         /// </summary>
         public string Email { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password.
-        /// </summary>
-        public string Password { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password salt.
-        /// </summary>
-        public string Salt { get; set; }
 
         /// <summary>
         /// Gets or sets the login attempt.

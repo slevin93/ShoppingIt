@@ -12,7 +12,7 @@ namespace ShoppingIt.Crm.Domain
         /// <summary>
         /// Gets or sets account id.
         /// </summary>
-        public string AccountId { get; set; }
+        public int AccountId { get; set; }
 
         /// <summary>
         /// Gets or sets email.

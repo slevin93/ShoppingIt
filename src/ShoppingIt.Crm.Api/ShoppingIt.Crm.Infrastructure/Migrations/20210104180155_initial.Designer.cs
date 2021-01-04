@@ -10,8 +10,8 @@ using ShoppingIt.Crm.Infrastructure;
 namespace ShoppingIt.Crm.Infrastructure.Migrations
 {
     [DbContext(typeof(ShoppingItContext))]
-    [Migration("20201215212720_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210104180155_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,8 +23,10 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
 
             modelBuilder.Entity("ShoppingIt.Crm.Domain.Account", b =>
                 {
-                    b.Property<string>("AccountId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("AccountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -86,15 +88,12 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<string>("AccountId1")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("AccountTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("AssignedAccountTypeId");
 
-                    b.HasIndex("AccountId1");
+                    b.HasIndex("AccountId");
 
                     b.HasIndex("AccountTypeId");
 
@@ -135,9 +134,6 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<string>("AccountId1")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("TimeStamp")
                         .HasColumnType("datetime2");
 
@@ -146,7 +142,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
 
                     b.HasKey("SaleId");
 
-                    b.HasIndex("AccountId1");
+                    b.HasIndex("AccountId");
 
                     b.ToTable("Sale");
                 });
@@ -189,7 +185,9 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 {
                     b.HasOne("ShoppingIt.Crm.Domain.Account", "Account")
                         .WithMany("AssignedAccountTypes")
-                        .HasForeignKey("AccountId1");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ShoppingIt.Crm.Domain.AccountType", "AccountType")
                         .WithMany("AssignedAccountTypes")
@@ -206,7 +204,9 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 {
                     b.HasOne("ShoppingIt.Crm.Domain.Account", "Account")
                         .WithMany("Sales")
-                        .HasForeignKey("AccountId1");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Account");
                 });

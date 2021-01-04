@@ -1,13 +1,8 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Models.Account
 {
-    public class AccountRequestModel : Validator
+    public class RegisterModel : Validator
     {
         /// <summary>
         /// Gets or sets the email.
@@ -25,7 +20,7 @@ namespace ShoppingIt.Crm.Core.Models.Account
         public string ConfirmPassword { get; set; }
     }
 
-    public class AccountValidator : AbstractValidator<AccountRequestModel>
+    public class AccountValidator : AbstractValidator<RegisterModel>
     {
         public AccountValidator()
         {

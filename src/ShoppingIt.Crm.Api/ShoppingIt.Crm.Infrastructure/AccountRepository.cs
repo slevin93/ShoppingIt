@@ -2,7 +2,6 @@
 using ShoppingIt.Crm.Core.Dto.Accounts;
 using ShoppingIt.Crm.Core.Repository;
 using ShoppingIt.Crm.Domain;
-using System;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Infrastructure
@@ -12,14 +11,14 @@ namespace ShoppingIt.Crm.Infrastructure
         public AccountRepository(ShoppingItContext context, IMapper mapper)
             : base(context, mapper) { }
 
-        public Task<AccountAuthDto> GetAccountByEmailAsync(string email)
+        public Task<AccountAuthDetails> GetAccountByEmailAsync(string email)
         {
-            return FirstOrDefaultAsync<Account, AccountAuthDto>(x => x.Email == email);
+            return FirstOrDefaultAsync<Account, AccountAuthDetails>(x => x.Email == email);
         }
 
-        public Task<AccountDetailsDto> RegisterAsync(Account account)
+        public Task<AccountDetails> RegisterAsync(Account account)
         {
-            return AddAsync<Account, AccountDetailsDto>(account);
+            return AddAsync<Account, AccountDetails>(account);
         }
     }
 }
