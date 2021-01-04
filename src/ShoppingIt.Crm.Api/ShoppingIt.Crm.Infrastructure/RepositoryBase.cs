@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -33,6 +35,16 @@ namespace ShoppingIt.Crm.Infrastructure
             var result = await this.context.Set<TEntity>().FirstOrDefaultAsync(where);
 
             return this.mapper.Map<TResult>(result);
+        }
+
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where) where TEntity : class
+        {
+            return this.context.Set<TEntity>().Where(where).Select(x => mapper.Map<TResult>(x)).ToArrayAsync();
+        }
+
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>() where TEntity : class
+        {
+            return this.context.Set<TEntity>().Select(x => mapper.Map<TResult>(x)).ToArrayAsync();
         }
 
         /// <summary>
