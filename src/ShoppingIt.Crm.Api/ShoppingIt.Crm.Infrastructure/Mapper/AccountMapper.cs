@@ -11,9 +11,9 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
     {
         public AccountMapper()
         {
-            CreateMap<AccountAuthDto, Account>().ReverseMap();
+            CreateMap<Account, AccountAuthDetails>().ReverseMap();
 
-            CreateMap<AccountDetailsDto, Account>().ReverseMap();
+            CreateMap<Account, AccountDetails>().ReverseMap();
         }
     }
 }

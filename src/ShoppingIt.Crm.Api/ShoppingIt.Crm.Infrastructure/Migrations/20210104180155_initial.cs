@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ShoppingIt.Crm.Infrastructure.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,8 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    AccountId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AccountId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -65,18 +66,17 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AccountId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sale", x => x.SaleId);
                     table.ForeignKey(
-                        name: "FK_Sale_Accounts_AccountId1",
-                        column: x => x.AccountId1,
+                        name: "FK_Sale_Accounts_AccountId",
+                        column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "AccountId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,18 +86,17 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     AssignedAccountTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
-                    AccountTypeId = table.Column<int>(type: "int", nullable: false),
-                    AccountId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    AccountTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AssignedAccountType", x => x.AssignedAccountTypeId);
                     table.ForeignKey(
-                        name: "FK_AssignedAccountType_Accounts_AccountId1",
-                        column: x => x.AccountId1,
+                        name: "FK_AssignedAccountType_Accounts_AccountId",
+                        column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "AccountId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AssignedAccountType_AccountTypes_AccountTypeId",
                         column: x => x.AccountTypeId,
@@ -137,9 +136,9 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AssignedAccountType_AccountId1",
+                name: "IX_AssignedAccountType_AccountId",
                 table: "AssignedAccountType",
-                column: "AccountId1");
+                column: "AccountId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AssignedAccountType_AccountTypeId",
@@ -147,9 +146,9 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 column: "AccountTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sale_AccountId1",
+                name: "IX_Sale_AccountId",
                 table: "Sale",
-                column: "AccountId1");
+                column: "AccountId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SaleItem_ProductId",

@@ -48,7 +48,7 @@ namespace ShoppingIt.Crm.Infrastructure
 
             await this.context.SaveChangesAsync();
 
-            return this.mapper.Map<TResult>(newEntity);
+            return this.mapper.Map<TResult>(newEntity.Entity);
         }
     }
 }
