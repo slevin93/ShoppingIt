@@ -25,6 +25,11 @@ namespace ShoppingIt.Crm.Domain
         public decimal Total { get; set; }
 
         /// <summary>
+        /// Gets or sets total items sold.
+        /// </summary>
+        public int TotalItems { get; set; }
+
+        /// <summary>
         /// Gets or sets time stamp.
         /// </summary>
         public DateTime TimeStamp { get; set; }
@@ -33,5 +38,7 @@ namespace ShoppingIt.Crm.Domain
         /// Gets or sets account.
         /// </summary>
         public virtual Account Account { get; set; }
+
+        public virtual ICollection<SaleItem> SaleItems { get; set; }
     }
 }

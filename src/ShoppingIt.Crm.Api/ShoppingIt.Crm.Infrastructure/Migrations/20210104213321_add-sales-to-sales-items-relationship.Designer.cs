@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingIt.Crm.Infrastructure;
 
 namespace ShoppingIt.Crm.Infrastructure.Migrations
 {
     [DbContext(typeof(ShoppingItContext))]
-    partial class ShoppingItContextModelSnapshot : ModelSnapshot
+    [Migration("20210104213321_add-sales-to-sales-items-relationship")]
+    partial class addsalestosalesitemsrelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
