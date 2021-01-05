@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Infrastructure
@@ -14,7 +16,7 @@ namespace ShoppingIt.Crm.Infrastructure
     public class RepositoryBase
     {
         private readonly DbContext context;
-        private readonly IMapper mapper;
+        public readonly IMapper mapper;
 
         public RepositoryBase(DbContext context, IMapper mapper)
         {
@@ -61,6 +63,19 @@ namespace ShoppingIt.Crm.Infrastructure
             await this.context.SaveChangesAsync();
 
             return this.mapper.Map<TResult>(newEntity.Entity);
+        }
+
+        /// <summary>
+        /// Adds multiple rows to database.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity to add, these are founds in domains.</typeparam>
+        /// <param name="entity">THe list of entities to add.</param>
+        /// <returns>Returns number of rows added.</returns>
+        public async Task<int> AddRangeAsync<TEntity>(TEntity[] entity) where TEntity : class
+        {
+            await this.context.Set<TEntity>().AddRangeAsync(entity);
+
+            return await this.context.SaveChangesAsync();
         }
     }
 }

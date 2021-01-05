@@ -6,6 +6,7 @@ using ShoppingIt.Crm.Core.Repository;
 using ShoppingIt.Crm.Core.Services.Accounts;
 using ShoppingIt.Crm.Core.Services.Hash;
 using ShoppingIt.Crm.Core.Services.Products;
+using ShoppingIt.Crm.Core.Services.Sales;
 using ShoppingIt.Crm.Infrastructure;
 using ShoppingIt.Crm.Infrastructure.Mapper;
 
@@ -23,10 +24,15 @@ namespace ShoppingIt.Crm.Api.Injection
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductRepository, ProductRepository>();
 
+            services.AddTransient<ISalesService, SalesService>();
+            services.AddTransient<ISalesRepository, SalesRepository>();
+
             services.AddMvc()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Validator>());
 
-            services.AddAutoMapper(typeof(AccountMapper), typeof(ProductMapper));
+            services.AddAutoMapper(typeof(AccountMapper), 
+                typeof(ProductMapper), 
+                typeof(SalesMapper));
 
             return services;
         }

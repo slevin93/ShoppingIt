@@ -24,6 +24,6 @@ namespace ShoppingIt.Crm.Domain
         /// </summary>
         public string Description { get; set; }
     
-        public ICollection<AssignedAccountType> AssignedAccountTypes { get; set; }
+        public virtual ICollection<AssignedAccountType> AssignedAccountTypes { get; set; }
     }
 }
