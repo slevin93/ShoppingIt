@@ -26,6 +26,9 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -54,6 +57,8 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("AccountId");
+
+                    b.HasIndex("CompanyId");
 
                     b.ToTable("Accounts");
                 });
@@ -98,6 +103,59 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.ToTable("AssignedAccountType");
                 });
 
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.Company", b =>
+                {
+                    b.Property<int>("CompanyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AddressLine1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CompanyId");
+
+                    b.ToTable("Company");
+                });
+
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.PaymentType", b =>
+                {
+                    b.Property<int>("PaymentTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PaymentTypeId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("PaymentTypeId");
+
+                    b.HasIndex("PaymentTypeId1");
+
+                    b.ToTable("PaymentType");
+                });
+
             modelBuilder.Entity("ShoppingIt.Crm.Domain.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -111,11 +169,26 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsVattable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<string>("PictureLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("SalesPrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("WholePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("WholeSaleLink")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 
@@ -132,6 +205,12 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
+                    b.Property<int>("PaymentTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SalesStatusId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("TimeStamp")
                         .HasColumnType("datetime2");
 
@@ -144,6 +223,10 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.HasKey("SaleId");
 
                     b.HasIndex("AccountId");
+
+                    b.HasIndex("PaymentTypeId");
+
+                    b.HasIndex("SalesStatusId");
 
                     b.ToTable("Sale");
                 });
@@ -182,6 +265,35 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.ToTable("SaleItem");
                 });
 
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.SalesStatus", b =>
+                {
+                    b.Property<int>("SalesStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SalesStatusId");
+
+                    b.ToTable("SalesStatus");
+                });
+
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.Account", b =>
+                {
+                    b.HasOne("ShoppingIt.Crm.Domain.Company", "Company")
+                        .WithMany("Accounts")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("ShoppingIt.Crm.Domain.AssignedAccountType", b =>
                 {
                     b.HasOne("ShoppingIt.Crm.Domain.Account", "Account")
@@ -201,6 +313,13 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Navigation("AccountType");
                 });
 
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.PaymentType", b =>
+                {
+                    b.HasOne("ShoppingIt.Crm.Domain.PaymentType", null)
+                        .WithMany("PaymentTypes")
+                        .HasForeignKey("PaymentTypeId1");
+                });
+
             modelBuilder.Entity("ShoppingIt.Crm.Domain.Sale", b =>
                 {
                     b.HasOne("ShoppingIt.Crm.Domain.Account", "Account")
@@ -209,7 +328,23 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ShoppingIt.Crm.Domain.PaymentType", "PaymentType")
+                        .WithMany()
+                        .HasForeignKey("PaymentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShoppingIt.Crm.Domain.SalesStatus", "SalesStatus")
+                        .WithMany("Sales")
+                        .HasForeignKey("SalesStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Account");
+
+                    b.Navigation("PaymentType");
+
+                    b.Navigation("SalesStatus");
                 });
 
             modelBuilder.Entity("ShoppingIt.Crm.Domain.SaleItem", b =>
@@ -243,9 +378,24 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     b.Navigation("AssignedAccountTypes");
                 });
 
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.Company", b =>
+                {
+                    b.Navigation("Accounts");
+                });
+
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.PaymentType", b =>
+                {
+                    b.Navigation("PaymentTypes");
+                });
+
             modelBuilder.Entity("ShoppingIt.Crm.Domain.Sale", b =>
                 {
                     b.Navigation("SaleItems");
+                });
+
+            modelBuilder.Entity("ShoppingIt.Crm.Domain.SalesStatus", b =>
+                {
+                    b.Navigation("Sales");
                 });
 #pragma warning restore 612, 618
         }

@@ -17,6 +17,11 @@ namespace ShoppingIt.Crm.Core.Dto.Accounts
         public string AccountId { get; set; }
 
         /// <summary>
+        /// Gets or sets the assigned company id.
+        /// </summary>
+        public int CompanyId { get; set; }
+
+        /// <summary>
         /// Gets or sets email.
         /// </summary>
         public string Email { get; set; }

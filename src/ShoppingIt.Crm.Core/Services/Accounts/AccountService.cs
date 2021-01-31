@@ -45,6 +45,7 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
 
             return await accountRepository.RegisterAsync(new Account()
             {
+                CompanyId = accountModel.CompanyId,
                 Email = accountModel.Email,
                 Password = hashPassword,
                 Salt = salt,
