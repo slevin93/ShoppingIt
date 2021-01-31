@@ -29,7 +29,7 @@ namespace ShoppingIt.Crm.Core.Services.Products
                 Name = product.Name,
                 Description = product.Description,
                 IsActive = product.IsActive,
-                Price = product.Price
+                SalesPrice = product.Price
             });
         }
 

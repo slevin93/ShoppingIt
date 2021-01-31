@@ -15,6 +15,8 @@ namespace ShoppingIt.Crm.Api
 {
     public class Startup
     {
+        readonly string shoppingItClients = "shoppingItClients";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +27,16 @@ namespace ShoppingIt.Crm.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // ToDo: Move to config
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: shoppingItClients,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
@@ -72,6 +84,8 @@ namespace ShoppingIt.Crm.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(shoppingItClients);
 
             app.UseAuthentication();
 

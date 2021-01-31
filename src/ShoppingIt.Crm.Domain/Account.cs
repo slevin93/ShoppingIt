@@ -15,6 +15,11 @@ namespace ShoppingIt.Crm.Domain
         public int AccountId { get; set; }
 
         /// <summary>
+        /// Gets or sets assigned company id.
+        /// </summary>
+        public int CompanyId { get; set; }
+
+        /// <summary>
         /// Gets or sets email.
         /// </summary>
         public string Email { get; set; }
@@ -62,5 +67,10 @@ namespace ShoppingIt.Crm.Domain
         public virtual ICollection<AssignedAccountType> AssignedAccountTypes { get; set; }
 
         public virtual ICollection<Sale> Sales { get; set; }
+
+        /// <summary>
+        /// The company the account is assigned to.
+        /// </summary>
+        public virtual Company Company { get; set; }
     }
 }

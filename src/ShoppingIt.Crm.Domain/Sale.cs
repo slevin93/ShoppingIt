@@ -35,10 +35,24 @@ namespace ShoppingIt.Crm.Domain
         public DateTime TimeStamp { get; set; }
 
         /// <summary>
+        /// Gets or sets the payment type.
+        /// </summary>
+        public int PaymentTypeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sales status id.
+        /// </summary>
+        public int SalesStatusId { get; set; }
+
+        /// <summary>
         /// Gets or sets account.
         /// </summary>
         public virtual Account Account { get; set; }
 
         public virtual ICollection<SaleItem> SaleItems { get; set; }
+
+        public virtual SalesStatus SalesStatus { get; set; }
+
+        public virtual PaymentType PaymentType { get; set; }
     }
 }
