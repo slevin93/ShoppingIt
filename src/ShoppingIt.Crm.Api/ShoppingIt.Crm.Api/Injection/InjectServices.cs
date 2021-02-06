@@ -5,6 +5,7 @@ using ShoppingIt.Crm.Core.Models;
 using ShoppingIt.Crm.Core.Repository;
 using ShoppingIt.Crm.Core.Services.Accounts;
 using ShoppingIt.Crm.Core.Services.Companies;
+using ShoppingIt.Crm.Core.Services.Error;
 using ShoppingIt.Crm.Core.Services.Hash;
 using ShoppingIt.Crm.Core.Services.Products;
 using ShoppingIt.Crm.Core.Services.Sales;
@@ -30,6 +31,8 @@ namespace ShoppingIt.Crm.Api.Injection
 
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
+
+            services.AddTransient<IErrorService, ErrorService>();
 
             services.AddMvc()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Validator>());

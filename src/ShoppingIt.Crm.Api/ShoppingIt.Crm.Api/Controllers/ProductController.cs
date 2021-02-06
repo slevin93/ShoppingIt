@@ -31,7 +31,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductDetails>> AddProduct(ProductModel productModel)
         {
-            return Ok(await productService.AddProductAsync(productModel));
+            var product = await productService.AddProductAsync(productModel);
+
+            return CreatedAtAction(nameof(GetProductById), new { id = product.ProductId }, product);
         }
 
         /// <summary>
@@ -50,9 +52,15 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// <param name="productId">The product id to return.</param>
         /// <returns>Return product where product id is equal to the provided product id.</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDetails>> GetProductById(int productId)
+        public async Task<ActionResult<ProductDetails>> GetProductById(int id)
         {
-            return Ok(await productService.GetProductByIdAsync(productId));
+            return Ok(await productService.GetProductByIdAsync(id));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<DeleteProduct>> DeleteProductById(int id)
+        {
+            return Ok(await productService.DeleteProductByIdAsync(id));
         }
     }
 }

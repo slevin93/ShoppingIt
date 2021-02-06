@@ -4,6 +4,7 @@ using ShoppingIt.Crm.Core.Dto;
 using ShoppingIt.Crm.Core.Dto.Accounts;
 using ShoppingIt.Crm.Core.Models.Account;
 using ShoppingIt.Crm.Core.Repository;
+using ShoppingIt.Crm.Core.Services.Error;
 using ShoppingIt.Crm.Core.Services.Hash;
 using ShoppingIt.Crm.Domain;
 using System;
@@ -20,14 +21,17 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
         private readonly IAccountRepository accountRepository;
         private readonly IHashService hashService;
         private readonly IConfiguration configuration;
+        private readonly IErrorService errorService;
 
         public AccountService(IAccountRepository accountRepository, 
             IHashService hashService,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IErrorService errorService)
         {
             this.accountRepository = accountRepository;
             this.hashService = hashService;
             this.configuration = configuration;
+            this.errorService = errorService;
         }
 
         public async Task<AccountDetails> RegisterAsync(RegisterModel accountModel)
@@ -36,7 +40,7 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
 
             if (account != null)
             {
-                return null;
+                errorService.HandleBadRequest("Invalid account details.");
             }
 
             string salt = this.hashService.GenerateSalt();
@@ -58,9 +62,14 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
             var account = await accountRepository
                 .GetAccountByEmailAsync(loginModel.Email);
 
-            if (account != null && !hashService.IsValid(hashService.Hash(loginModel.Password, account.Salt), account.Password))
+            if (account is null)
             {
-                return null;
+                throw new Exception("Invalid user credentials");
+            }
+
+            if (!hashService.IsValid(hashService.Hash(loginModel.Password, account.Salt), account.Password))
+            {
+                throw new Exception("Invalid user credentials");
             }
 
             // ToDo: Roles and claims
