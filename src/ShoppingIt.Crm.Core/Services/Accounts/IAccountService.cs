@@ -19,10 +19,16 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
         Task<AccountDetails> RegisterAsync(RegisterModel accountModel);
 
         /// <summary>
-        /// 
+        /// Login with user where credentials match provided login details.
         /// </summary>
         /// <param name="loginModel"></param>
         /// <returns></returns>
         Task<AccessToken> LoginAsync(LoginModel loginModel);
+
+        /// <summary>
+        /// Get list of accounts
+        /// </summary>
+        /// <returns>Returns list of accounts</returns>
+        Task<AccountDetails[]> GetAccountsAsync();
     }
 }

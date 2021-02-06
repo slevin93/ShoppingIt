@@ -16,6 +16,11 @@ namespace ShoppingIt.Crm.Infrastructure
             return FirstOrDefaultAsync<Account, AccountAuthDetails>(x => x.Email == email);
         }
 
+        public Task<AccountDetails[]> GetAccountsAsync()
+        {
+            return GetArrayAsync<Account, AccountDetails>();
+        }
+
         public Task<AccountDetails> RegisterAsync(Account account)
         {
             return AddAsync<Account, AccountDetails>(account);

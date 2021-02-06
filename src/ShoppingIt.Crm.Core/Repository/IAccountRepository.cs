@@ -22,5 +22,11 @@ namespace ShoppingIt.Crm.Core.Repository
         /// <param name="account">The account to save to database.</param>
         /// <returns>Returns newly created account.</returns>
         Task<AccountDetails> RegisterAsync(Account account);
+
+        /// <summary>
+        /// Get list of accounts
+        /// </summary>
+        /// <returns>Returns list of accounts</returns>
+        Task<AccountDetails[]> GetAccountsAsync();
     }
 }

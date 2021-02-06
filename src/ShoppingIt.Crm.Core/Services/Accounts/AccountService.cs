@@ -97,5 +97,10 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
                 Expiry = token.ValidTo
             };
         }
+
+        public Task<AccountDetails[]> GetAccountsAsync()
+        {
+            return this.accountRepository.GetAccountsAsync();
+        }
     }
 }
