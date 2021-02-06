@@ -35,5 +35,14 @@ namespace ShoppingIt.Crm.Core.Repository
         /// <param name="product">The product to add.</param>
         /// <returns>Returns newly created product.</returns>
         Task<ProductDetails> AddProductAsync(Product product);
+
+        /// <summary>
+        /// Deletes products by product id.
+        /// Note: This will not delete the product from the data,
+        /// it will only set is active as false.
+        /// </summary>
+        /// <param name="id">The product id.</param>
+        /// <returns>Returns deleted product id.</returns>
+        Task<DeleteProduct> DeleteProductByIdAsync(int id);
     }
 }

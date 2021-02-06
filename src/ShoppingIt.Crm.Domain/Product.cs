@@ -47,7 +47,7 @@ namespace ShoppingIt.Crm.Domain
         public int Stock { get; set; }
 
         /// <summary>
-        /// Gets or sets the link to the whole seller where we buy
+        /// Gets or sets the link to the whole seller where we buy.
         /// </summary>
         public string WholeSaleLink { get; set; }
 

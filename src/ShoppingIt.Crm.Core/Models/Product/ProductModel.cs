@@ -20,12 +20,18 @@ namespace ShoppingIt.Crm.Core.Models.Product
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
-        public decimal Price { get; set; }
+        public decimal SalesPrice { get; set; }
 
         /// <summary>
-        /// Gets or sets the is active state.
+        /// Gets or sets the whole sale price,
+        /// this will be the price we pay.
         /// </summary>
-        public bool IsActive { get; set; }
+        public decimal WholePrice { get; set; }
+
+        /// <summary>
+        /// Gets or sets the link to the whole seller where we buy.
+        /// </summary>
+        public string WholeSaleLink { get; set; }
     }
 
     public class ProductValidator : AbstractValidator<ProductModel>
@@ -36,7 +42,7 @@ namespace ShoppingIt.Crm.Core.Models.Product
 
             RuleFor(x => x.Description).NotNull().NotEmpty();
 
-            RuleFor(x => x.Price).GreaterThanOrEqualTo(00.00m);
+            RuleFor(x => x.SalesPrice).GreaterThanOrEqualTo(00.00m);
         }
     }
 }

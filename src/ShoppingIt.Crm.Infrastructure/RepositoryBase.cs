@@ -39,6 +39,16 @@ namespace ShoppingIt.Crm.Infrastructure
             return this.mapper.Map<TResult>(result);
         }
 
+        public ValueTask<TEntity> FindAsync<TEntity>(object id) where TEntity : class
+        {
+            return this.context.Set<TEntity>().FindAsync(id);
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return this.context.SaveChangesAsync();
+        }
+
         public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where) where TEntity : class
         {
             return this.context.Set<TEntity>().Where(where).Select(x => mapper.Map<TResult>(x)).ToArrayAsync();

@@ -28,9 +28,16 @@ namespace ShoppingIt.Crm.Core.Services.Products
             {
                 Name = product.Name,
                 Description = product.Description,
-                IsActive = product.IsActive,
-                SalesPrice = product.Price
+                IsActive = true,
+                SalesPrice = product.SalesPrice,
+                WholePrice = product.WholePrice,
+                IsVattable = false
             });
+        }
+
+        public Task<DeleteProduct> DeleteProductByIdAsync(int id)
+        {
+            return productRepository.DeleteProductByIdAsync(id);
         }
 
         public Task<ProductDetails> GetProductByIdAsync(int productId)
