@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShoppingIt.Crm.Core.Models;
 using ShoppingIt.Crm.Core.Repository;
+using ShoppingIt.Crm.Core.Services;
 using ShoppingIt.Crm.Core.Services.Accounts;
 using ShoppingIt.Crm.Core.Services.Companies;
 using ShoppingIt.Crm.Core.Services.Error;
@@ -32,6 +33,9 @@ namespace ShoppingIt.Crm.Api.Injection
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
 
+            services.AddTransient<ILookupService, LookupService>();
+            services.AddTransient<ILookupRepository, LookupRepository>();
+
             services.AddTransient<IErrorService, ErrorService>();
 
             services.AddMvc()
@@ -39,8 +43,8 @@ namespace ShoppingIt.Crm.Api.Injection
 
             services.AddAutoMapper(typeof(AccountMapper),
                 typeof(ProductMapper),
-                typeof(CompanyMapper));
-                // typeof(SalesMapper));
+                typeof(CompanyMapper),
+                typeof(ItemMapper));
 
             return services;
         }

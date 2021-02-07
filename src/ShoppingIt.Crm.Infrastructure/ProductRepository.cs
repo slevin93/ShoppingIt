@@ -8,13 +8,8 @@ namespace ShoppingIt.Crm.Infrastructure
 {
     public class ProductRepository : RepositoryBase, IProductRepository
     {
-        public ShoppingItContext something;
-
         public ProductRepository(ShoppingItContext context, IMapper mapper)
-            : base(context, mapper) 
-        {
-            this.something = context;
-        }
+            : base(context, mapper) { }
 
         public Task<ProductDetails> AddProductAsync(Product product)
         {
@@ -29,7 +24,6 @@ namespace ShoppingIt.Crm.Infrastructure
 
             await SaveChangesAsync();
 
-            // ToDo: Remove mapper and replace with auto mapper?
             return new DeleteProduct()
             {
                 Id = id
