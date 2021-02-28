@@ -6,6 +6,7 @@ using ShoppingIt.Crm.Core.Services.Accounts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -23,9 +24,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<AccountDetails>> AccountDetails()
+        public async Task<ActionResult<AccountDetails>> AccountDetails(CancellationToken cancellationToken)
         {
-            return Ok(await accountService.GetAccountsAsync());
+            return Ok(await accountService.GetAccountsAsync(cancellationToken));
         }
     }
 }

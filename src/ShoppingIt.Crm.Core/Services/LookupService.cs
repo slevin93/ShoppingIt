@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Services
@@ -18,9 +19,9 @@ namespace ShoppingIt.Crm.Core.Services
             this.repository = repository;
         }
 
-        public Task<SalesStatusDetails[]> GetSaleStatusAsync()
+        public Task<SalesStatusDetails[]> GetSaleStatusAsync(CancellationToken cancellationToken)
         {
-            return repository.GetSaleStatusAsync();
+            return repository.GetSaleStatusAsync(cancellationToken);
         }
     }
 }

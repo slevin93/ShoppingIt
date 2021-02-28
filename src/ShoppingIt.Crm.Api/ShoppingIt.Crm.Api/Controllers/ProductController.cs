@@ -7,6 +7,7 @@ using ShoppingIt.Crm.Core.Services.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -29,9 +30,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// <returns>Return newly created product.</returns>
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<ProductDetails>> AddProduct(ProductModel productModel)
+        public async Task<ActionResult<ProductDetails>> AddProduct(ProductModel productModel, CancellationToken cancellationToken)
         {
-            var product = await productService.AddProductAsync(productModel);
+            var product = await productService.AddProductAsync(productModel, cancellationToken);
 
             return CreatedAtAction(nameof(GetProductById), new { id = product.ProductId }, product);
         }
@@ -41,9 +42,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// </summary>
         /// <returns>Returns an array of products.</returns>
         [HttpGet]
-        public async Task<ActionResult<ProductDetails[]>> GetProducts()
+        public async Task<ActionResult<ProductDetails[]>> GetProducts(CancellationToken cancellationToken)
         {
-            return Ok(await productService.GetProductsAsync());
+            return Ok(await productService.GetProductsAsync(cancellationToken));
         }
 
         /// <summary>
@@ -52,15 +53,15 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// <param name="productId">The product id to return.</param>
         /// <returns>Return product where product id is equal to the provided product id.</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDetails>> GetProductById(int id)
+        public async Task<ActionResult<ProductDetails>> GetProductById(int id, CancellationToken cancellationToken)
         {
-            return Ok(await productService.GetProductByIdAsync(id));
+            return Ok(await productService.GetProductByIdAsync(id, cancellationToken));
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteProduct>> DeleteProductById(int id)
+        public async Task<ActionResult<DeleteProduct>> DeleteProductById(int id, CancellationToken cancellationToken)
         {
-            return Ok(await productService.DeleteProductByIdAsync(id));
+            return Ok(await productService.DeleteProductByIdAsync(id, cancellationToken));
         }
     }
 }

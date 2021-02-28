@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Infrastructure
@@ -15,14 +16,14 @@ namespace ShoppingIt.Crm.Infrastructure
         public CompanyRepository(ShoppingItContext context, IMapper mapper)
             : base(context, mapper) { }
 
-        public Task<CompanyDetails> GetCompanyByIdAsync(int id)
+        public Task<CompanyDetails> GetCompanyByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return FirstOrDefaultAsync<Company, CompanyDetails>(x => x.CompanyId == id);
+            return FirstOrDefaultAsync<Company, CompanyDetails>(x => x.CompanyId == id, cancellationToken);
         }
 
-        public Task<CompanyDetails> RegisterCompanyAsync(Company company)
+        public Task<CompanyDetails> RegisterCompanyAsync(Company company, CancellationToken cancellationToken)
         {
-            return AddAsync<Company, CompanyDetails>(company);
+            return AddAsync<Company, CompanyDetails>(company, cancellationToken);
         }
     }
 }

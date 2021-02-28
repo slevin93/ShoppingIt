@@ -2,6 +2,7 @@
 using ShoppingIt.Crm.Core.Models.Product;
 using ShoppingIt.Crm.Core.Repository;
 using ShoppingIt.Crm.Domain;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Services.Products
@@ -15,9 +16,9 @@ namespace ShoppingIt.Crm.Core.Services.Products
             this.productRepository = productRepository;
         }
 
-        public async Task<ProductDetails> AddProductAsync(ProductModel product)
+        public async Task<ProductDetails> AddProductAsync(ProductModel product, CancellationToken cancellationToken)
         {
-            var foundProduct = await GetProductByNameAsync(product.Name);
+            var foundProduct = await GetProductByNameAsync(product.Name, cancellationToken);
 
             if (foundProduct != null)
             {
@@ -32,27 +33,27 @@ namespace ShoppingIt.Crm.Core.Services.Products
                 SalesPrice = product.SalesPrice,
                 WholePrice = product.WholePrice,
                 IsVattable = false
-            });
+            }, cancellationToken);
         }
 
-        public Task<DeleteProduct> DeleteProductByIdAsync(int id)
+        public Task<DeleteProduct> DeleteProductByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return productRepository.DeleteProductByIdAsync(id);
+            return productRepository.DeleteProductByIdAsync(id, cancellationToken);
         }
 
-        public Task<ProductDetails> GetProductByIdAsync(int productId)
+        public Task<ProductDetails> GetProductByIdAsync(int productId, CancellationToken cancellationToken)
         {
-            return productRepository.GetProductByIdAsync(productId);
+            return productRepository.GetProductByIdAsync(productId, cancellationToken);
         }
 
-        public Task<ProductDetails> GetProductByNameAsync(string name)
+        public Task<ProductDetails> GetProductByNameAsync(string name, CancellationToken cancellationToken)
         {
-            return productRepository.GetProductByNameAsync(name);
+            return productRepository.GetProductByNameAsync(name, cancellationToken);
         }
 
-        public Task<ProductDetails[]> GetProductsAsync()
+        public Task<ProductDetails[]> GetProductsAsync(CancellationToken cancellationToken)
         {
-            return productRepository.GetProductsAsync();
+            return productRepository.GetProductsAsync(cancellationToken);
         }
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Services.Sales
@@ -22,10 +23,10 @@ namespace ShoppingIt.Crm.Core.Services.Sales
             this.productService = productService;
         }
 
-        public async Task<SalesItemDetails> AddItemToSaleAsync(SaleItemModel saleItem)
+        public async Task<SalesItemDetails> AddItemToSaleAsync(SaleItemModel saleItem, CancellationToken cancellationToken)
         {
             // ToDo: Cache products.
-            var product = await productService.GetProductByIdAsync(saleItem.ProductId);
+            var product = await productService.GetProductByIdAsync(saleItem.ProductId, cancellationToken);
 
             return await salesRepository.AddItemToSaleAsync(new SaleItem()
             {
@@ -34,14 +35,14 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                 Vat = 00.00m,
                 Quantity = saleItem.Quantity,
                 Total = saleItem.Quantity * product.Price
-            });
+            }, cancellationToken);
         }
 
-        public async Task AddItemToSaleAsync(SaleItemModel[] saleItems)
+        public async Task AddItemToSaleAsync(SaleItemModel[] saleItems, CancellationToken cancellationToken)
         {
             foreach (var saleItem in saleItems)
             {
-                var product = await productService.GetProductByIdAsync(saleItem.ProductId);
+                var product = await productService.GetProductByIdAsync(saleItem.ProductId, cancellationToken);
 
                 await salesRepository.AddItemToSaleAsync(new SaleItem()
                 {
@@ -50,11 +51,11 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                     Vat = 00.00m,
                     Quantity = saleItem.Quantity,
                     Total = saleItem.Quantity * product.Price
-                });
+                }, cancellationToken);
             }
         }
 
-        public async Task<SalesDetails> CreateSaleAsync(SaleModel saleModel)
+        public async Task<SalesDetails> CreateSaleAsync(SaleModel saleModel, CancellationToken cancellationToken)
         {
             var newSale = await salesRepository.CreateSaleAsync(new Sale()
             {
@@ -63,13 +64,13 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                 SalesStatusId = saleModel.SaleStatusId,
                 TotalItems = saleModel.Items.Length,
                 TimeStamp = DateTime.Now
-            });
+            }, cancellationToken);
 
             List<SaleItem> saleItems = new List<SaleItem>();
 
             foreach (var saleItem in saleModel.Items)
             {
-                var product = await productService.GetProductByIdAsync(saleItem.ProductId);
+                var product = await productService.GetProductByIdAsync(saleItem.ProductId, cancellationToken);
 
                 saleItems.Add(new SaleItem()
                 {
@@ -82,26 +83,26 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                 });
             }
 
-            await salesRepository.AddItemToSaleAsync(saleItems.ToArray());
+            await salesRepository.AddItemToSaleAsync(saleItems.ToArray(), cancellationToken);
 
-            var result = await salesRepository.GetSaleByIdAsync(newSale.SaleId);
+            var result = await salesRepository.GetSaleByIdAsync(newSale.SaleId, cancellationToken);
 
             return result;
         }
 
-        public Task<SalesDetails> GetSaleItemByIdAsync(int id)
+        public Task<SalesDetails> GetSaleItemByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return salesRepository.GetSaleByIdAsync(id);
+            return salesRepository.GetSaleByIdAsync(id, cancellationToken);
         }
 
-        public Task<SalesDetails[]> GetSalesAsync()
+        public Task<SalesDetails[]> GetSalesAsync(CancellationToken cancellationToken)
         {
-            return salesRepository.GetSalesAsync();
+            return salesRepository.GetSalesAsync(cancellationToken);
         }
 
-        public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId)
+        public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId, CancellationToken cancellationToken)
         {
-            return salesRepository.GetSalesItemBySaleIdAsync(saleId);
+            return salesRepository.GetSalesItemBySaleIdAsync(saleId, cancellationToken);
         }
     }
 }

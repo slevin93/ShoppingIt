@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Services.Companies
@@ -22,12 +23,12 @@ namespace ShoppingIt.Crm.Core.Services.Companies
             this.accountService = accountService;
         }
 
-        public Task<CompanyDetails> GetCompanyByIdAsync(int id)
+        public Task<CompanyDetails> GetCompanyByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return companyRepository.GetCompanyByIdAsync(id);
+            return companyRepository.GetCompanyByIdAsync(id, cancellationToken);
         }
 
-        public async Task<CompanyDetails> RegisterCompanyAsync(RegisterCompanyModel company)
+        public async Task<CompanyDetails> RegisterCompanyAsync(RegisterCompanyModel company, CancellationToken cancellationToken)
         {
             var companyDetails = await companyRepository.RegisterCompanyAsync(new Company()
             {
@@ -37,13 +38,13 @@ namespace ShoppingIt.Crm.Core.Services.Companies
                 AddressLine2 = company.AddressLine2,
                 AddressLine3 = company.AddressLine3,
                 AddressLine4 = company.AddressLine4
-            });
+            }, cancellationToken);
 
             foreach (var account in company.Accounts)
             {
                 account.CompanyId = companyDetails.CompanyId;
 
-                await accountService.RegisterAsync(account);
+                await accountService.RegisterAsync(account, cancellationToken);
             }
 
             return companyDetails;

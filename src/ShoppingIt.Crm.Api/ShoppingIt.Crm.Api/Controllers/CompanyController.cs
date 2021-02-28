@@ -6,6 +6,7 @@ using ShoppingIt.Crm.Core.Services.Companies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -22,17 +23,17 @@ namespace ShoppingIt.Crm.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CompanyDetails>> RegisterCompany(RegisterCompanyModel companyModel)
+        public async Task<ActionResult<CompanyDetails>> RegisterCompany(RegisterCompanyModel companyModel, CancellationToken cancellationToken)
         {
-            var companyDetails = await companyService.RegisterCompanyAsync(companyModel);
+            var companyDetails = await companyService.RegisterCompanyAsync(companyModel, cancellationToken);
 
             return CreatedAtAction(nameof(GetCompany), new { id = companyDetails.CompanyId }, companyDetails);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CompanyDetails>> GetCompany(int id)
+        public async Task<ActionResult<CompanyDetails>> GetCompany(int id, CancellationToken cancellationToken)
         {
-            return Ok(await this.companyService.GetCompanyByIdAsync(id)); 
+            return Ok(await this.companyService.GetCompanyByIdAsync(id, cancellationToken)); 
         }
     }
 }
