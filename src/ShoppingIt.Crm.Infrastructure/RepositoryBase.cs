@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Infrastructure
@@ -33,14 +34,14 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <typeparam name="TResult">The mapped result.</typeparam>
         /// <param name="where">Define the where clause in linq.</param>
         /// <returns>Returns the mapped result.</returns>
-        public async Task<TResult> FirstOrDefaultAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where) where TEntity : class
+        public async Task<TResult> FirstOrDefaultAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default) where TEntity : class
         {
-            var result = await this.context.Set<TEntity>().FirstOrDefaultAsync(where);
+            var result = await this.context.Set<TEntity>().FirstOrDefaultAsync(where, cancellationToken);
 
             return this.mapper.Map<TResult>(result);
         }
 
-        public ValueTask<TEntity> FindAsync<TEntity>(object id) where TEntity : class
+        public ValueTask<TEntity> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default) where TEntity : class
         {
             return this.context.Set<TEntity>().FindAsync(id);
         }
@@ -50,14 +51,14 @@ namespace ShoppingIt.Crm.Infrastructure
             return this.context.SaveChangesAsync();
         }
 
-        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where) where TEntity : class
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default) where TEntity : class
         {
-            return this.context.Set<TEntity>().Where(where).Select(x => mapper.Map<TResult>(x)).ToArrayAsync();
+            return this.context.Set<TEntity>().Where(where).Select(x => mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
         }
 
-        public Task<TResult[]> GetArrayAsync<TEntity, TResult>() where TEntity : class
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(CancellationToken cancellationToken = default) where TEntity : class
         {
-            return this.context.Set<TEntity>().Select(x => mapper.Map<TResult>(x)).ToArrayAsync();
+            return this.context.Set<TEntity>().Select(x => mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
         }
 
         /// <summary>
@@ -67,9 +68,9 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <typeparam name="TResult">The mapped response from the database.</typeparam>
         /// <param name="entity">The entity to save to the database.</param>
         /// <returns>Returns the newrly created entity as the mapped response.<w/returns>
-        public async Task<TResult> AddAsync<TEntity, TResult>(TEntity entity) where TEntity : class
+        public async Task<TResult> AddAsync<TEntity, TResult>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : class
         {
-            var newEntity = await this.context.Set<TEntity>().AddAsync(entity);
+            var newEntity = await this.context.Set<TEntity>().AddAsync(entity, cancellationToken);
 
             await this.SaveChangesAsync();
 
@@ -82,9 +83,9 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <typeparam name="TEntity">The entity to add, these are founds in domains.</typeparam>
         /// <param name="entity">THe list of entities to add.</param>
         /// <returns>Returns number of rows added.</returns>
-        public async Task<int> AddRangeAsync<TEntity>(TEntity[] entity) where TEntity : class
+        public async Task<int> AddRangeAsync<TEntity>(TEntity[] entity, CancellationToken cancellationToken = default) where TEntity : class
         {
-            await this.context.Set<TEntity>().AddRangeAsync(entity);
+            await this.context.Set<TEntity>().AddRangeAsync(entity, cancellationToken);
 
             return await this.context.SaveChangesAsync();
         }

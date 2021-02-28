@@ -7,6 +7,7 @@ using ShoppingIt.Crm.Core.Services.Accounts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -28,9 +29,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// <param name="loginModel">Login information.</param>
         /// <returns>Returns access token.</returns>
         [HttpPost("login")]
-        public async Task<ActionResult<AccessToken>> Login(LoginModel loginModel)
+        public async Task<ActionResult<AccessToken>> Login(LoginModel loginModel, CancellationToken cancellationToken)
         {
-            return Ok(await this.accountService.LoginAsync(loginModel));
+            return Ok(await this.accountService.LoginAsync(loginModel, cancellationToken));
         }
 
         /// <summary>
@@ -39,9 +40,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// <param name="registerModel">The account details to save.</param>
         /// <returns>Returns newly created account.</returns>
         [HttpPost("register")]
-        public async Task<ActionResult<AccountDetails>> Register(RegisterModel registerModel)
+        public async Task<ActionResult<AccountDetails>> Register(RegisterModel registerModel, CancellationToken cancellationToken)
         {
-            return Ok(await this.accountService.RegisterAsync(registerModel));
+            return Ok(await this.accountService.RegisterAsync(registerModel, cancellationToken));
         }
     }
 }

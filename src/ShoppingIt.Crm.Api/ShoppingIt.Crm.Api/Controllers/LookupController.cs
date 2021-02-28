@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingIt.Crm.Core.Dto.Lookup;
 using ShoppingIt.Crm.Core.Services;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -24,9 +25,9 @@ namespace ShoppingIt.Crm.Api.Controllers
         /// </summary>
         /// <returns>Returns a list of sales status.</returns>
         [HttpGet("sales-status")]
-        public async Task<ActionResult<SalesStatusDetails>> GetSalesStatus()
+        public async Task<ActionResult<SalesStatusDetails>> GetSalesStatus(CancellationToken cancellationToken)
         {
-            return Ok(await this.lookupService.GetSaleStatusAsync());
+            return Ok(await this.lookupService.GetSaleStatusAsync(cancellationToken));
         }
     }
 }

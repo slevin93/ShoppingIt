@@ -1,5 +1,6 @@
 ﻿using ShoppingIt.Crm.Core.Dto.Accounts;
 using ShoppingIt.Crm.Domain;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Repository
@@ -13,8 +14,9 @@ namespace ShoppingIt.Crm.Core.Repository
         /// Returns account auth details from the database where email = <paramref name="email"/>.
         /// </summary>
         /// <param name="email">The email to search.</param>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
         /// <returns>Returns account auth details where email addresses match query.</returns>
-        Task<AccountAuthDetails> GetAccountByEmailAsync(string email);
+        Task<AccountAuthDetails> GetAccountByEmailAsync(string email, CancellationToken cancellationToken);
 
         /// <summary>
         /// Registers new account.
@@ -26,7 +28,8 @@ namespace ShoppingIt.Crm.Core.Repository
         /// <summary>
         /// Get list of accounts
         /// </summary>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
         /// <returns>Returns list of accounts</returns>
-        Task<AccountDetails[]> GetAccountsAsync();
+        Task<AccountDetails[]> GetAccountsAsync(CancellationToken cancellationToken);
     }
 }

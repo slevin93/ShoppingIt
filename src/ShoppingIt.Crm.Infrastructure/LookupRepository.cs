@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Infrastructure
@@ -16,9 +17,9 @@ namespace ShoppingIt.Crm.Infrastructure
         public LookupRepository(ShoppingItContext context, IMapper mapper)
             : base(context, mapper) { }
 
-        public Task<SalesStatusDetails[]> GetSaleStatusAsync()
+        public Task<SalesStatusDetails[]> GetSaleStatusAsync(CancellationToken cancellationToken)
         {
-            return GetArrayAsync<SalesStatus, SalesStatusDetails>();
+            return GetArrayAsync<SalesStatus, SalesStatusDetails>(cancellationToken);
         }
     }
 }

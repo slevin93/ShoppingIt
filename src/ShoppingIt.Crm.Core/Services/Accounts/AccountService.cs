@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Core.Services.Accounts
@@ -34,9 +35,9 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
             this.errorService = errorService;
         }
 
-        public async Task<AccountDetails> RegisterAsync(RegisterModel accountModel)
+        public async Task<AccountDetails> RegisterAsync(RegisterModel accountModel, CancellationToken cancellationToken)
         {
-            var account = await this.accountRepository.GetAccountByEmailAsync(accountModel.Email);
+            var account = await this.accountRepository.GetAccountByEmailAsync(accountModel.Email, cancellationToken);
 
             if (account != null)
             {
@@ -57,10 +58,10 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
             });
         }
 
-        public async Task<AccessToken> LoginAsync(LoginModel loginModel)
+        public async Task<AccessToken> LoginAsync(LoginModel loginModel, CancellationToken cancellationToken)
         {
             var account = await accountRepository
-                .GetAccountByEmailAsync(loginModel.Email);
+                .GetAccountByEmailAsync(loginModel.Email, cancellationToken);
 
             if (account is null)
             {
@@ -98,9 +99,9 @@ namespace ShoppingIt.Crm.Core.Services.Accounts
             };
         }
 
-        public Task<AccountDetails[]> GetAccountsAsync()
+        public Task<AccountDetails[]> GetAccountsAsync(CancellationToken cancellationToken)
         {
-            return this.accountRepository.GetAccountsAsync();
+            return this.accountRepository.GetAccountsAsync(cancellationToken);
         }
     }
 }
