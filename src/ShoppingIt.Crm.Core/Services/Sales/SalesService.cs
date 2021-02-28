@@ -59,6 +59,8 @@ namespace ShoppingIt.Crm.Core.Services.Sales
             var newSale = await salesRepository.CreateSaleAsync(new Sale()
             {
                 AccountId = saleModel.AccountId,
+                PaymentTypeId = saleModel.PaymentTypeId,
+                SalesStatusId = saleModel.SaleStatusId,
                 TotalItems = saleModel.Items.Length,
                 TimeStamp = DateTime.Now
             });
@@ -67,7 +69,6 @@ namespace ShoppingIt.Crm.Core.Services.Sales
 
             foreach (var saleItem in saleModel.Items)
             {
-                // ToDo: Cache Products
                 var product = await productService.GetProductByIdAsync(saleItem.ProductId);
 
                 saleItems.Add(new SaleItem()
@@ -85,21 +86,22 @@ namespace ShoppingIt.Crm.Core.Services.Sales
 
             var result = await salesRepository.GetSaleByIdAsync(newSale.SaleId);
 
-            result.Items = await salesRepository.GetSalesItemBySaleIdAsync(newSale.SaleId);
-
             return result;
         }
 
-        public async Task<SalesDetails[]> GetSalesAsync()
+        public Task<SalesDetails> GetSaleItemByIdAsync(int id)
         {
-            var sales = await salesRepository.GetSalesAsync();
+            return salesRepository.GetSaleByIdAsync(id);
+        }
 
-            foreach (var sale in sales)
-            {
-                sale.Items = await salesRepository.GetSalesItemBySaleIdAsync(sale.SaleId);
-            }
+        public Task<SalesDetails[]> GetSalesAsync()
+        {
+            return salesRepository.GetSalesAsync();
+        }
 
-            return sales;
+        public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId)
+        {
+            return salesRepository.GetSalesItemBySaleIdAsync(saleId);
         }
     }
 }

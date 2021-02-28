@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ShoppingIt.Crm.Core.Dto.Sales;
+using ShoppingIt.Crm.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
     {
         public SalesMapper()
         {
-            // CreateMap<Product, ProductDetails>().ReverseMap();
+            CreateMap<Sale, SalesDetails>().ReverseMap();
+
+            CreateMap<SaleItem, SalesItemDetails>().ReverseMap();
         }
     }
 }

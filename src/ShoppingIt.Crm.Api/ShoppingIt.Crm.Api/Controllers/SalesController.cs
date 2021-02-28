@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingIt.Crm.Core.Dto.Sales;
 using ShoppingIt.Crm.Core.Models.Sales;
 using ShoppingIt.Crm.Core.Services.Sales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
@@ -42,6 +38,23 @@ namespace ShoppingIt.Crm.Api.Controllers
         public async Task<ActionResult<SalesDetails[]>> GetSales()
         {
             return Ok(await salesService.GetSalesAsync());
+        }
+
+        /// <summary>
+        /// Get order details by order id.
+        /// </summary>
+        /// <param name="id">The order id to return.</param>
+        /// <returns>Returns the order details for the specified order id.</returns>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SalesDetails>> GetSaleBySaleId(int id)
+        {
+            return Ok(await salesService.GetSaleItemByIdAsync(id));
+        }
+
+        [HttpGet("{id}/items")]
+        public async Task<ActionResult<SalesItemDetails>> GetSaleItems(int id)
+        {
+            return Ok(await salesService.GetSalesItemBySaleIdAsync(id));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.EntityFrameworkCore;
+using ShoppingIt.Crm.Core.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ShoppingIt.Crm.Infrastructure
     /// <summary>
     /// Defines the base repository, abstracting away the db commands.
     /// </summary>
-    public class RepositoryBase
+    public class RepositoryBase : IRepositoryBase
     {
         private readonly DbContext context;
         public readonly IMapper mapper;
@@ -65,12 +66,12 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <typeparam name="TEntity">The entity to add to the database.</typeparam>
         /// <typeparam name="TResult">The mapped response from the database.</typeparam>
         /// <param name="entity">The entity to save to the database.</param>
-        /// <returns>Returns the newrly created entity as the mapped response.</returns>
+        /// <returns>Returns the newrly created entity as the mapped response.<w/returns>
         public async Task<TResult> AddAsync<TEntity, TResult>(TEntity entity) where TEntity : class
         {
             var newEntity = await this.context.Set<TEntity>().AddAsync(entity);
 
-            await this.context.SaveChangesAsync();
+            await this.SaveChangesAsync();
 
             return this.mapper.Map<TResult>(newEntity.Entity);
         }
@@ -86,6 +87,21 @@ namespace ShoppingIt.Crm.Infrastructure
             await this.context.Set<TEntity>().AddRangeAsync(entity);
 
             return await this.context.SaveChangesAsync();
+        }
+
+        public Task StartTransactionAsync()
+        {
+            return this.context.Database.BeginTransactionAsync();
+        }
+
+        public Task CommitTransactionAsync()
+        {
+            return this.context.Database.CommitTransactionAsync();
+        }
+
+        public Task RollbackAsync()
+        {
+            return this.context.Database.RollbackTransactionAsync();
         }
     }
 }
