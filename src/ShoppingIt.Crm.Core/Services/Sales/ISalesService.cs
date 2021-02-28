@@ -31,9 +31,22 @@ namespace ShoppingIt.Crm.Core.Services.Sales
         Task<SalesItemDetails> AddItemToSaleAsync(SaleItemModel saleItem);
 
         /// <summary>
+        /// Gets sales item from the provided sale id.
+        /// </summary>
+        /// <param name="saleId">The sale id.</param>
+        /// <returns>Returns an array of sale items where sale id equals provided sale id.</returns>
+        Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId);
+
+        /// <summary>
         /// Add item record to sale.
         /// </summary>
         /// <param name="saleItem">List of sale item to add.</param>
         Task AddItemToSaleAsync(SaleItemModel[] saleItems);
+
+        /// <summary>
+        /// Get sale item by sale id.
+        /// </summary>
+        /// <returns>Return sales details.</returns>
+        Task<SalesDetails> GetSaleItemByIdAsync(int id);
     }
 }

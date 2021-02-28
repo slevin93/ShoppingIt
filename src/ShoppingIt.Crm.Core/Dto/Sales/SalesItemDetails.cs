@@ -21,6 +21,8 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
         /// </summary>
         public int ProductId { get; set; }
 
+        public string Product { get; set; }
+
         /// <summary>
         /// Gets or sets price of sale.
         /// </summary>

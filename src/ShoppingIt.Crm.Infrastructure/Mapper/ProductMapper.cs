@@ -8,7 +8,9 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
     {
         public ProductMapper()
         {
-            CreateMap<Product, ProductDetails>().ReverseMap();
+            CreateMap<Product, ProductDetails>()
+                  .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.SalesPrice))
+                  .ReverseMap();
         }
     }
 }

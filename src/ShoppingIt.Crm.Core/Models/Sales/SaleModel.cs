@@ -17,6 +17,16 @@ namespace ShoppingIt.Crm.Core.Models.Sales
         public int AccountId { get; set; }
 
         /// <summary>
+        /// Defines payment type.
+        /// </summary>
+        public int PaymentTypeId { get; set; }
+
+        /// <summary>
+        /// Define sales status.
+        /// </summary>
+        public int SaleStatusId { get; set; }
+
+        /// <summary>
         /// The products assigned to the sale record.
         /// </summary>
         public SaleItemModel[] Items { get; set; }

@@ -36,7 +36,7 @@ namespace ShoppingIt.Crm.Api.Middleware.Exceptions
             return context.Response.WriteAsync(new ErrorDetails()
             {
                 StatusCode = context.Response.StatusCode,
-                Message = exception.Message ?? exception.InnerException.Message
+                Message = $"{exception.Message} :: {exception?.InnerException?.Message}"
             }.ToString());
         }
     }

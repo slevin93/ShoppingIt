@@ -19,11 +19,6 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
         public int AccountId { get; set; }
 
         /// <summary>
-        /// Gets or sets sale items.
-        /// </summary>
-        public IEnumerable<SalesItemDetails> Items { get; set; }
-
-        /// <summary>
         /// Gets or sets the time stamp.
         /// </summary>
         public DateTime TimeStamp { get; set; }
