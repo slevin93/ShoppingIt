@@ -9,7 +9,8 @@ namespace ShoppingIt.Crm.Api.Controllers
     /// <summary>
     /// Get lookup items for dropdown lists.
     /// </summary>
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class LookupsController : ControllerBase
     {

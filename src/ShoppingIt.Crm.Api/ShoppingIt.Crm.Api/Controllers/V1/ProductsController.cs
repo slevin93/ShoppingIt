@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
