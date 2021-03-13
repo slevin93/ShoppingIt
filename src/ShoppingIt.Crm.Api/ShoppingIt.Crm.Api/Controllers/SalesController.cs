@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ShoppingIt.Crm.Api.Controllers
 {
     [Authorize]
-    [Route("api/sales")]
+    [Route("api/[controller]")]
     [ApiController]
     public class SalesController : ControllerBase
     {

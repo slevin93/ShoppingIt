@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
 {
-    [Route("api/products")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService productService;
 
-        public ProductController(IProductService productService)
+        public ProductsController(IProductService productService)
         {
             this.productService = productService;
         }

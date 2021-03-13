@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
 {
-    [Route("api/company")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CompanyController : ControllerBase
     {

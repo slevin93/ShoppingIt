@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingIt.Crm.Api.Controllers
 {
-    [Route("api/auth")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

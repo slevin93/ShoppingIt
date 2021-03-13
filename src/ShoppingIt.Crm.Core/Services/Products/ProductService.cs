@@ -2,6 +2,7 @@
 using ShoppingIt.Crm.Core.Models.Product;
 using ShoppingIt.Crm.Core.Repository;
 using ShoppingIt.Crm.Domain;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace ShoppingIt.Crm.Core.Services.Products
 
             if (foundProduct != null)
             {
-                return null;
+                throw new Exception("Product already exists.");
             }
 
             return await productRepository.AddProductAsync(new Product()
