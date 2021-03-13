@@ -4,9 +4,38 @@
 
 ## Clone
 
+Note: The following examples shows windows 10 terminal.
+
+Create a folder where you want to clone the source code to. 
+
+Open windows 10 terminal in that location.
+
+### Initialise Git
+Skip this step if you already have a folder where git is initialised.
+
+```
+git init
+```
+
+Clone source code.
+```
+git clone https://github.com/slevin93/ShoppingIt.git
+```
+
 ## Build
 
+Navigate to '/ShoppingIt/src/' and run the following donet cli command to build the project.
+
+```
+dotnet build
+```
+
 ## Run
+Navigate to '/ShoppingIt/src/' and run the following donet cli command to build the project.
+
+```
+dotnet run
+```
 
 ## Contributing
 
