@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShoppingIt.Crm.Api</name>
+    </assembly>
+    <members>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.AuthController.Login(ShoppingIt.Crm.Core.Models.Account.LoginModel,System.Threading.CancellationToken)">
+            <summary>
+            Login with provided details.
+            </summary>
+            <param name="loginModel">Login information.</param>
+            <returns>Returns access token.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.AuthController.Register(ShoppingIt.Crm.Core.Models.Account.RegisterModel,System.Threading.CancellationToken)">
+            <summary>
+            Register account with provided details. Note, this is for public users not admin.
+            </summary>
+            <param name="registerModel">The account details to save.</param>
+            <returns>Returns newly created account.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.LookupsController">
+            <summary>
+            Get lookup items for dropdown lists.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.GetSalesStatus(System.Threading.CancellationToken)">
+            <summary>
+            Get list of sales statuses.
+            </summary>
+            <returns>Returns a list of sales status.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.AddProduct(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
+            <summary>
+            Add new product.
+            </summary>
+            <param name="productModel">The details for the new product to add.</param>
+            <returns>Return newly created product.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.GetProducts(System.Threading.CancellationToken)">
+            <summary>
+            Get a list of all products.
+            </summary>
+            <returns>Returns an array of products.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.GetProductById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get product by product id.
+            </summary>
+            <param name="productId">The product id to return.</param>
+            <returns>Return product where product id is equal to the provided product id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.AddSales(ShoppingIt.Crm.Core.Models.Sales.SaleModel,System.Threading.CancellationToken)">
+            <summary>
+            Add new sale record.
+            </summary>
+            <param name="saleModel">The sale details.</param>
+            <returns>Returns newly created sale.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.GetSales(System.Threading.CancellationToken)">
+            <summary>
+            Gets all sales on record.
+            </summary>
+            <returns>Returns list of sales.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.GetSaleBySaleId(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get order details by order id.
+            </summary>
+            <param name="id">The order id to return.</param>
+            <returns>Returns the order details for the specified order id.</returns>
+        </member>
+    </members>
+</doc>
