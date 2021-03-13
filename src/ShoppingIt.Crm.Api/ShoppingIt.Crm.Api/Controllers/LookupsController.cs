@@ -9,13 +9,13 @@ namespace ShoppingIt.Crm.Api.Controllers
     /// <summary>
     /// Get lookup items for dropdown lists.
     /// </summary>
-    [Route("api/lookups")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class LookupController : ControllerBase
+    public class LookupsController : ControllerBase
     {
         private readonly ILookupService lookupService;
 
-        public LookupController(ILookupService lookupService)
+        public LookupsController(ILookupService lookupService)
         {
             this.lookupService = lookupService;
         }

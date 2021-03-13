@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 namespace ShoppingIt.Crm.Api.Controllers
 {
     [Authorize]
-    [Route("api/accounts/")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountsController : ControllerBase
     {
         private readonly IAccountService accountService;
 
-        public AccountController(IAccountService accountService)
+        public AccountsController(IAccountService accountService)
         {
             this.accountService = accountService;
         }
