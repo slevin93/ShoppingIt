@@ -22,7 +22,7 @@ Clone source code.
 git clone https://github.com/slevin93/ShoppingIt.git
 ```
 
-## Build
+### Build
 
 Navigate to '/ShoppingIt/src/' and run the following donet cli command to build the project.
 
@@ -30,12 +30,18 @@ Navigate to '/ShoppingIt/src/' and run the following donet cli command to build 
 dotnet build
 ```
 
-## Run
+### Run
 Navigate to '/ShoppingIt/src/' and run the following donet cli command to build the project.
 
 ```
 dotnet run
 ```
+
+## Documentation
+
+### Build
+
+### Run
 
 ## Contributing
 
