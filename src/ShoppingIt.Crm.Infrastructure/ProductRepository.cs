@@ -23,7 +23,7 @@ namespace ShoppingIt.Crm.Infrastructure
 
             product.IsActive = false;
 
-            await SaveChangesAsync();
+            await SaveChangesAsync(cancellationToken);
 
             return new DeleteProduct()
             {
