@@ -46,9 +46,9 @@ namespace ShoppingIt.Crm.Infrastructure
             return this.context.Set<TEntity>().FindAsync(id);
         }
 
-        public Task<int> SaveChangesAsync()
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
-            return this.context.SaveChangesAsync();
+            return this.context.SaveChangesAsync(cancellationToken);
         }
 
         public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default) where TEntity : class
@@ -72,7 +72,7 @@ namespace ShoppingIt.Crm.Infrastructure
         {
             var newEntity = await this.context.Set<TEntity>().AddAsync(entity, cancellationToken);
 
-            await this.SaveChangesAsync();
+            await this.SaveChangesAsync(cancellationToken);
 
             return this.mapper.Map<TResult>(newEntity.Entity);
         }
@@ -87,22 +87,22 @@ namespace ShoppingIt.Crm.Infrastructure
         {
             await this.context.Set<TEntity>().AddRangeAsync(entity, cancellationToken);
 
-            return await this.context.SaveChangesAsync();
+            return await this.context.SaveChangesAsync(cancellationToken);
         }
 
         public Task StartTransactionAsync()
         {
-            return this.context.Database.BeginTransactionAsync();
+            throw new NotImplementedException();
         }
 
         public Task CommitTransactionAsync()
         {
-            return this.context.Database.CommitTransactionAsync();
+            throw new NotImplementedException();
         }
 
         public Task RollbackAsync()
         {
-            return this.context.Database.RollbackTransactionAsync();
+            throw new NotImplementedException();
         }
     }
 }
