@@ -1,10 +1,14 @@
-﻿using ShoppingIt.Crm.Core.Dto.Accounts;
-using ShoppingIt.Crm.Domain;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="IAccountRepository.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Repository
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Accounts;
+    using ShoppingIt.Crm.Domain;
+
     /// <summary>
     /// Defines the account data access.
     /// </summary>
@@ -26,10 +30,10 @@ namespace ShoppingIt.Crm.Core.Repository
         Task<AccountDetails> RegisterAsync(Account account);
 
         /// <summary>
-        /// Get list of accounts
+        /// Get list of accounts.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
-        /// <returns>Returns list of accounts</returns>
+        /// <returns>Returns list of accounts.</returns>
         Task<AccountDetails[]> GetAccountsAsync(CancellationToken cancellationToken);
     }
 }

@@ -1,11 +1,14 @@
-﻿using ShoppingIt.Crm.Core.Dto.Products;
-using ShoppingIt.Crm.Core.Models.Product;
-using ShoppingIt.Crm.Domain;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="IProductService.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Services.Products
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Products;
+    using ShoppingIt.Crm.Core.Models.Product;
+
     /// <summary>
     /// Define product business process.
     /// </summary>

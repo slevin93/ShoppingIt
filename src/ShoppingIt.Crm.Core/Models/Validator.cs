@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Validator.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Models
 {
+    /// <summary>
+    /// Base class for fluent validation.
+    /// </summary>
     public class Validator
     {
     }

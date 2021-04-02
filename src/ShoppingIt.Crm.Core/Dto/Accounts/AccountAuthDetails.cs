@@ -1,4 +1,6 @@
-﻿using System;
+﻿// <copyright file="AccountAuthDetails.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Dto.Accounts
 {

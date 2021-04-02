@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="SaleItem.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
@@ -44,8 +44,14 @@ namespace ShoppingIt.Crm.Domain
         /// </summary>
         public decimal Total { get; set; }
 
+        /// <summary>
+        /// Gets or sets the parent product.
+        /// </summary>
         public virtual Product Product { get; set; }
 
+        /// <summary>
+        /// Gets or sets the parent sale.
+        /// </summary>
         public virtual Sale Sale { get; set; }
     }
 }

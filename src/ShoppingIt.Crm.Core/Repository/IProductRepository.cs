@@ -1,10 +1,14 @@
-﻿using ShoppingIt.Crm.Core.Dto.Products;
-using ShoppingIt.Crm.Domain;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="IProductRepository.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Repository
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Products;
+    using ShoppingIt.Crm.Domain;
+
     /// <summary>
     /// Defines data access for products.
     /// </summary>

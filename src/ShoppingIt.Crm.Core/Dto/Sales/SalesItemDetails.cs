@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SalesItemDetails.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Dto.Sales
 {
@@ -21,6 +19,9 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
         /// </summary>
         public int ProductId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the product name.
+        /// </summary>
         public string Product { get; set; }
 
         /// <summary>
@@ -39,8 +40,8 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
         public int Quantity { get; set; }
 
         /// <summary>
-        /// Gets or sets total item (<see cref="Price"/> * <see cref="Quantity"/>).
+        /// Gets total item (<see cref="Price"/> * <see cref="Quantity"/>).
         /// </summary>
-        public decimal Total => Price * Quantity;
+        public decimal Total => this.Price * this.Quantity;
     }
 }

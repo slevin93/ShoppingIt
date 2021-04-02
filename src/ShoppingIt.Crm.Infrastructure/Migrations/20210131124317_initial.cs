@@ -1,10 +1,18 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿// <copyright file="20210131124317_initial.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Infrastructure.Migrations
 {
-    public partial class initial : Migration
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    /// <summary>
+    /// Initial db migration.
+    /// </summary>
+    public partial class Initial : Migration
     {
+        /// <inheritdoc/>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -14,7 +22,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     AccountTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -32,7 +40,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressLine2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressLine3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AddressLine4 = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    AddressLine4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -47,7 +55,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PaymentTypeId1 = table.Column<int>(type: "int", nullable: true)
+                    PaymentTypeId1 = table.Column<int>(type: "int", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -74,7 +82,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     Stock = table.Column<int>(type: "int", nullable: false),
                     WholeSaleLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PictureLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -88,7 +96,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     SalesStatusId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -110,7 +118,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     LoginAttempt = table.Column<int>(type: "int", nullable: false),
                     IsLocked = table.Column<bool>(type: "bit", nullable: false),
                     UnlockDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -130,7 +138,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     AssignedAccountTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
-                    AccountTypeId = table.Column<int>(type: "int", nullable: false)
+                    AccountTypeId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -160,7 +168,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     TotalItems = table.Column<int>(type: "int", nullable: false),
                     TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PaymentTypeId = table.Column<int>(type: "int", nullable: false),
-                    SalesStatusId = table.Column<int>(type: "int", nullable: false)
+                    SalesStatusId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -196,7 +204,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Vat = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -261,6 +269,7 @@ namespace ShoppingIt.Crm.Infrastructure.Migrations
                 column: "SaleId");
         }
 
+        /// <inheritdoc/>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

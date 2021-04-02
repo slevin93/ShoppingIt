@@ -1,50 +1,65 @@
-﻿using AutoMapper;
-using ShoppingIt.Crm.Core.Dto.Sales;
-using ShoppingIt.Crm.Core.Repository;
-using ShoppingIt.Crm.Domain;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="SalesRepository.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Infrastructure
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using AutoMapper;
+    using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Core.Repository;
+    using ShoppingIt.Crm.Domain;
+
+    /// <summary>
+    /// Sales data repository.
+    /// </summary>
     public class SalesRepository : RepositoryBase, ISalesRepository
     {
-        public ShoppingItContext context1;
-
-        public SalesRepository(ShoppingItContext context, IMapper mapper) 
-            : base(context, mapper) 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SalesRepository"/> class.
+        /// </summary>
+        /// <param name="context">The ShoppingIt dbcontext.</param>
+        /// <param name="mapper">The IMapper.</param>
+        public SalesRepository(ShoppingItContext context, IMapper mapper)
+            : base(context, mapper)
         {
-            this.context1 = context;
         }
 
+        /// <inheritdoc/>
         public Task<SalesItemDetails> AddItemToSaleAsync(SaleItem saleItem, CancellationToken cancellationToken)
         {
-            return AddAsync<SaleItem, SalesItemDetails>(saleItem, cancellationToken);
+            return this.AddAsync<SaleItem, SalesItemDetails>(saleItem, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<int> AddItemToSaleAsync(SaleItem[] saleItem, CancellationToken cancellationToken)
         {
-            return AddRangeAsync(saleItem, cancellationToken);
+            return this.AddRangeAsync(saleItem, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<SalesDetails> CreateSaleAsync(Sale sale, CancellationToken cancellationToken)
         {
-            return AddAsync<Sale, SalesDetails>(sale, cancellationToken);
+            return this.AddAsync<Sale, SalesDetails>(sale, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<SalesDetails> GetSaleByIdAsync(int saleId, CancellationToken cancellationToken)
         {
-            return FirstOrDefaultAsync<Sale, SalesDetails>(x => x.SaleId == saleId, cancellationToken);
+            return this.FirstOrDefaultAsync<Sale, SalesDetails>(x => x.SaleId == saleId, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<SalesDetails[]> GetSalesAsync(CancellationToken cancellationToken)
         {
-            return GetArrayAsync<Sale, SalesDetails>(cancellationToken);
+            return this.GetArrayAsync<Sale, SalesDetails>(cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId, CancellationToken cancellationToken)
         {
-            return GetArrayAsync<SaleItem, SalesItemDetails>(x => x.SaleId == saleId, cancellationToken);
+            return this.GetArrayAsync<SaleItem, SalesItemDetails>(x => x.SaleId == saleId, cancellationToken);
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SalesStatusDetails.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Dto.Lookup
 {
@@ -12,7 +10,7 @@ namespace ShoppingIt.Crm.Core.Dto.Lookup
     public class SalesStatusDetails : Item
     {
         /// <summary>
-        /// The Item id.
+        /// Gets or sets the Item id.
         /// </summary>
         public int SalesStatusId { get; set; }
     }

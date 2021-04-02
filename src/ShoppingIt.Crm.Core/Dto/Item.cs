@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Item.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Dto
 {
@@ -12,12 +10,12 @@ namespace ShoppingIt.Crm.Core.Dto
     public class Item
     {
         /// <summary>
-        /// The item name.
+        /// Gets or sets the item name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// The item description.
+        /// Gets or sets the item description.
         /// </summary>
         public string Description { get; set; }
     }

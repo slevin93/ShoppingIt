@@ -1,25 +1,30 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Routing.Template;
-using Microsoft.EntityFrameworkCore;
-using ShoppingIt.Crm.Core.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="RepositoryBase.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Infrastructure
 {
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using AutoMapper;
+    using Microsoft.EntityFrameworkCore;
+
     /// <summary>
     /// Defines the base repository, abstracting away the db commands.
     /// </summary>
-    public class RepositoryBase : IRepositoryBase
+    public class RepositoryBase
     {
         private readonly DbContext context;
-        public readonly IMapper mapper;
+        private readonly IMapper mapper;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryBase"/> class.
+        /// </summary>
+        /// <param name="context">The dbcontext.</param>
+        /// <param name="mapper">The IMapper.</param>
         public RepositoryBase(DbContext context, IMapper mapper)
         {
             this.context = context;
@@ -27,38 +32,70 @@ namespace ShoppingIt.Crm.Infrastructure
         }
 
         /// <summary>
-        /// Returns the first result from the query defined in <paramref name="where"/>. 
+        /// Returns the first result from the query defined in <paramref name="where"/>.
         /// If there is no data, return null.
         /// </summary>
         /// <typeparam name="TEntity">The entity to search.</typeparam>
         /// <typeparam name="TResult">The mapped result.</typeparam>
         /// <param name="where">Define the where clause in linq.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the mapped result.</returns>
-        public async Task<TResult> FirstOrDefaultAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default) where TEntity : class
+        public async Task<TResult> FirstOrDefaultAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default)
+            where TEntity : class
         {
             var result = await this.context.Set<TEntity>().FirstOrDefaultAsync(where, cancellationToken);
 
             return this.mapper.Map<TResult>(result);
         }
 
-        public ValueTask<TEntity> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default) where TEntity : class
+        /// <summary>
+        /// Get entity by id where the provided id is equal to the entity id.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity type to return.</typeparam>
+        /// <param name="id">The entity id to return.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns entity id is equal to <paramref name="id"/>.</returns>
+        public ValueTask<TEntity> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default)
+            where TEntity : class
         {
-            return this.context.Set<TEntity>().FindAsync(id);
+            return this.context.Set<TEntity>().FindAsync(id, cancellationToken);
         }
 
+        /// <summary>
+        /// Save changes to entity states.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns number of entities state updated.</returns>
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
             return this.context.SaveChangesAsync(cancellationToken);
         }
 
-        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default) where TEntity : class
+        /// <summary>
+        /// Gets array of entities where entity qualify for the provided <paramref name="where"/>.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity to get from db.</typeparam>
+        /// <typeparam name="TResult">The response type.</typeparam>
+        /// <param name="where">The where clause to search entities against.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns entities where entity state matches the where clause.</returns>
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default)
+            where TEntity : class
         {
-            return this.context.Set<TEntity>().Where(where).Select(x => mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
+            return this.context.Set<TEntity>().Where(where).Select(x => this.mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
         }
 
-        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(CancellationToken cancellationToken = default) where TEntity : class
+        /// <summary>
+        /// Get all items stored with provided type.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity type to return.</typeparam>
+        /// <typeparam name="TResult">The result to return.</typeparam>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns array of all items found in entity table.</returns>
+        public Task<TResult[]> GetArrayAsync<TEntity, TResult>(CancellationToken cancellationToken = default)
+            where TEntity : class
         {
-            return this.context.Set<TEntity>().Select(x => mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
+            return this.context.Set<TEntity>().Select(x => this.mapper.Map<TResult>(x)).ToArrayAsync(cancellationToken);
         }
 
         /// <summary>
@@ -67,8 +104,10 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <typeparam name="TEntity">The entity to add to the database.</typeparam>
         /// <typeparam name="TResult">The mapped response from the database.</typeparam>
         /// <param name="entity">The entity to save to the database.</param>
-        /// <returns>Returns the newrly created entity as the mapped response.<w/returns>
-        public async Task<TResult> AddAsync<TEntity, TResult>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : class
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns the newrly created entity as the mapped response.</returns>
+        public async Task<TResult> AddAsync<TEntity, TResult>(TEntity entity, CancellationToken cancellationToken = default)
+            where TEntity : class
         {
             var newEntity = await this.context.Set<TEntity>().AddAsync(entity, cancellationToken);
 
@@ -82,27 +121,14 @@ namespace ShoppingIt.Crm.Infrastructure
         /// </summary>
         /// <typeparam name="TEntity">The entity to add, these are founds in domains.</typeparam>
         /// <param name="entity">THe list of entities to add.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns number of rows added.</returns>
-        public async Task<int> AddRangeAsync<TEntity>(TEntity[] entity, CancellationToken cancellationToken = default) where TEntity : class
+        public async Task<int> AddRangeAsync<TEntity>(TEntity[] entity, CancellationToken cancellationToken = default)
+            where TEntity : class
         {
             await this.context.Set<TEntity>().AddRangeAsync(entity, cancellationToken);
 
             return await this.context.SaveChangesAsync(cancellationToken);
-        }
-
-        public Task StartTransactionAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task CommitTransactionAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RollbackAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }

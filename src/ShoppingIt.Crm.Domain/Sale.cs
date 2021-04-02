@@ -1,9 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="Sale.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Defines sales.
     /// </summary>
@@ -49,10 +52,19 @@ namespace ShoppingIt.Crm.Domain
         /// </summary>
         public virtual Account Account { get; set; }
 
+        /// <summary>
+        /// Gets or sets the sales items.
+        /// </summary>
         public virtual ICollection<SaleItem> SaleItems { get; set; }
 
+        /// <summary>
+        /// Gets or sets the sale status.
+        /// </summary>
         public virtual SalesStatus SalesStatus { get; set; }
 
+        /// <summary>
+        /// Gets or sets the payment type.
+        /// </summary>
         public virtual PaymentType PaymentType { get; set; }
     }
 }

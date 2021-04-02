@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="Product.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
@@ -25,7 +25,7 @@ namespace ShoppingIt.Crm.Domain
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets sale price, 
+        /// Gets or sets sale price,
         /// this will be the price the customer pays.
         /// </summary>
         public decimal SalesPrice { get; set; }
@@ -37,7 +37,7 @@ namespace ShoppingIt.Crm.Domain
         public decimal WholePrice { get; set; }
 
         /// <summary>
-        /// Gets or sets if we pay vat on this product.
+        /// Gets or sets a value indicating whether we pay vat on this product.
         /// </summary>
         public bool IsVattable { get; set; }
 
@@ -57,7 +57,7 @@ namespace ShoppingIt.Crm.Domain
         public string PictureLink { get; set; }
 
         /// <summary>
-        /// Gets or sets if the product is active or not.
+        /// Gets or sets a value indicating whether the product is active or not.
         /// </summary>
         public bool IsActive { get; set; }
     }

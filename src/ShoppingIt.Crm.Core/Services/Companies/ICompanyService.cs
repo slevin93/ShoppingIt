@@ -1,14 +1,17 @@
-﻿using ShoppingIt.Crm.Core.Dto.Company;
-using ShoppingIt.Crm.Core.Models.Company;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="ICompanyService.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Services.Companies
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Company;
+    using ShoppingIt.Crm.Core.Models.Company;
+
+    /// <summary>
+    /// Defines company service operations.
+    /// </summary>
     public interface ICompanyService
     {
         /// <summary>

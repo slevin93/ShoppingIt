@@ -1,14 +1,16 @@
-﻿using FluentValidation;
-using ShoppingIt.Crm.Core.Models.Account;
-using ShoppingIt.Crm.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="RegisterCompanyModel.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Models.Company
 {
+    using System.Collections.Generic;
+    using FluentValidation;
+    using ShoppingIt.Crm.Core.Models.Account;
+
+    /// <summary>
+    /// The register company request model.
+    /// </summary>
     public class RegisterCompanyModel : Validator
     {
         /// <summary>
@@ -47,11 +49,19 @@ namespace ShoppingIt.Crm.Core.Models.Company
         public List<RegisterModel> Accounts { get; set; }
     }
 
+    /// <summary>
+    /// Implement register company validation.
+    /// </summary>
+#pragma warning disable SA1402 // File may only contain a single type
     public class RegisterCompanyValidator : AbstractValidator<RegisterCompanyModel>
+#pragma warning restore SA1402 // File may only contain a single type
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegisterCompanyValidator"/> class.
+        /// </summary>
         public RegisterCompanyValidator()
         {
-            RuleFor(x => x.Description).NotNull().NotEmpty();
+            this.RuleFor(x => x.Description).NotNull().NotEmpty();
         }
     }
 }
