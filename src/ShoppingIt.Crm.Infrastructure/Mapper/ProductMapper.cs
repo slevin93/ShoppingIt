@@ -6,6 +6,7 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
 {
     using AutoMapper;
     using ShoppingIt.Crm.Core.Dto.Products;
+    using ShoppingIt.Crm.Core.Models.Product;
     using ShoppingIt.Crm.Domain;
 
     /// <summary>
@@ -20,6 +21,8 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
         {
             this.CreateMap<Product, ProductDetails>()
                   .ReverseMap();
+
+            this.CreateMap<ProductModel, Product>();
         }
     }
 }

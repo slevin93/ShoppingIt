@@ -35,7 +35,7 @@ namespace ShoppingIt.Crm.Infrastructure
         /// <inheritdoc/>
         public async Task<DeleteProduct> DeleteProductByIdAsync(int id, CancellationToken cancellationToken)
         {
-            var product = await this.FindAsync<Product>(id, cancellationToken);
+            var product = await this.FindAsync<Product>(id);
 
             product.IsActive = false;
 
@@ -63,6 +63,14 @@ namespace ShoppingIt.Crm.Infrastructure
         public Task<ProductDetails[]> GetProductsAsync(CancellationToken cancellationToken)
         {
             return this.GetArrayAsync<Product, ProductDetails>(x => x.IsActive == true, cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<ProductDetails> UpdateProductAsync(int productId, Product product, CancellationToken cancellationToken)
+        {
+            product.ProductId = productId;
+
+            return this.UpdateAsync<Product, ProductDetails>(productId, product, cancellationToken);
         }
     }
 }

@@ -53,12 +53,11 @@ namespace ShoppingIt.Crm.Infrastructure
         /// </summary>
         /// <typeparam name="TEntity">The entity type to return.</typeparam>
         /// <param name="id">The entity id to return.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns entity id is equal to <paramref name="id"/>.</returns>
-        public ValueTask<TEntity> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default)
+        public ValueTask<TEntity> FindAsync<TEntity>(object id)
             where TEntity : class
         {
-            return this.context.Set<TEntity>().FindAsync(id, cancellationToken);
+            return this.context.Set<TEntity>().FindAsync(id);
         }
 
         /// <summary>
@@ -129,6 +128,27 @@ namespace ShoppingIt.Crm.Infrastructure
             await this.context.Set<TEntity>().AddRangeAsync(entity, cancellationToken);
 
             return await this.context.SaveChangesAsync(cancellationToken);
+        }
+
+        /// <summary>
+        /// Update entity.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity to update.</typeparam>
+        /// <typeparam name="TResult">The result type to return.</typeparam>
+        /// <param name="id">The entity id.</param>
+        /// <param name="entity">The new entity value.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns number of rows updated.</returns>
+        public async Task<TResult> UpdateAsync<TEntity, TResult>(object id, TEntity entity, CancellationToken cancellationToken = default)
+            where TEntity : class
+        {
+            var currentEntity = await this.FindAsync<TEntity>(id);
+
+            this.context.Entry<TEntity>(currentEntity).CurrentValues.SetValues(entity);
+
+            await this.SaveChangesAsync(cancellationToken);
+
+            return this.mapper.Map<TResult>(currentEntity);
         }
     }
 }
