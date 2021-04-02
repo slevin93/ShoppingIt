@@ -80,5 +80,18 @@ namespace ShoppingIt.Crm.Api.Controllers
         {
             return this.Ok(await this.productService.DeleteProductByIdAsync(id, cancellationToken));
         }
+
+        /// <summary>
+        /// Updates product with provided details.
+        /// </summary>
+        /// <param name="id">The product id.</param>
+        /// <param name="productModel">The product model.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns newly updated product.</returns>
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<ProductDetails>> UpdateProduct(int id, ProductModel productModel, CancellationToken cancellationToken)
+        {
+            return this.Ok(await this.productService.UpdateProductAsync(id, productModel, cancellationToken));
+        }
     }
 }

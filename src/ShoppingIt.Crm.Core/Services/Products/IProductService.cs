@@ -54,5 +54,14 @@ namespace ShoppingIt.Crm.Core.Services.Products
         /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
         /// <returns>Returns deleted product id as <see cref="DeleteProduct"/>.</returns>
         Task<DeleteProduct> DeleteProductByIdAsync(int id, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update product with new values.
+        /// </summary>
+        /// <param name="productId">The product id to update.</param>
+        /// <param name="product">The updated product values.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns updated product.</returns>
+        Task<ProductDetails> UpdateProductAsync(int productId, ProductModel product, CancellationToken cancellationToken);
     }
 }

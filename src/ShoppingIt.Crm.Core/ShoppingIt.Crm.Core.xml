@@ -376,17 +376,18 @@
         </member>
         <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.Name">
             <summary>
-            Gets or sets the product name.
+            Gets or sets product name.
             </summary>
         </member>
         <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.Description">
             <summary>
-            Gets or sets the description.
+            Gets or sets description.
             </summary>
         </member>
         <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.SalesPrice">
             <summary>
-            Gets or sets the price.
+            Gets or sets sale price,
+            this will be the price the customer pays.
             </summary>
         </member>
         <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.WholePrice">
@@ -395,9 +396,29 @@
             this will be the price we pay.
             </summary>
         </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.IsVattable">
+            <summary>
+            Gets or sets a value indicating whether we pay vat on this product.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.Stock">
+            <summary>
+            Gets or sets the amount we have in stock.
+            </summary>
+        </member>
         <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.WholeSaleLink">
             <summary>
             Gets or sets the link to the whole seller where we buy.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.PictureLink">
+            <summary>
+            Gets or sets the linked picture as an array.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the product is active or not.
             </summary>
         </member>
         <member name="T:ShoppingIt.Crm.Core.Models.Product.ProductValidator">
@@ -560,6 +581,15 @@
             <param name="id">The product id.</param>
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Returns deleted product id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.UpdateProductAsync(System.Int32,ShoppingIt.Crm.Domain.Product,System.Threading.CancellationToken)">
+            <summary>
+            Update product with new values.
+            </summary>
+            <param name="productId">The product id to update.</param>
+            <param name="product">The updated product values.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns updated product.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Core.Repository.ISalesRepository">
             <summary>
@@ -835,16 +865,26 @@
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Returns deleted product id as <see cref="T:ShoppingIt.Crm.Core.Dto.Products.DeleteProduct"/>.</returns>
         </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.UpdateProductAsync(System.Int32,ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
+            <summary>
+            Update product with new values.
+            </summary>
+            <param name="productId">The product id to update.</param>
+            <param name="product">The updated product values.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns updated product.</returns>
+        </member>
         <member name="T:ShoppingIt.Crm.Core.Services.Products.ProductService">
             <summary>
             Implements product service operations.
             </summary>
         </member>
-        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.#ctor(ShoppingIt.Crm.Core.Repository.IProductRepository)">
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.#ctor(ShoppingIt.Crm.Core.Repository.IProductRepository,AutoMapper.IMapper)">
             <summary>
             Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Products.ProductService"/> class.
             </summary>
             <param name="productRepository">The product repository.</param>
+            /// <param name="mapper">The mapper.</param>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.AddProductAsync(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -859,6 +899,9 @@
             <inheritdoc/>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.GetProductsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.UpdateProductAsync(System.Int32,ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:ShoppingIt.Crm.Core.Services.Sales.ISalesService">

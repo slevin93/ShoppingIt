@@ -149,6 +149,9 @@
         <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.GetProductsAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.UpdateProductAsync(System.Int32,ShoppingIt.Crm.Domain.Product,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="T:ShoppingIt.Crm.Infrastructure.RepositoryBase">
             <summary>
             Defines the base repository, abstracting away the db commands.
@@ -172,13 +175,12 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns the mapped result.</returns>
         </member>
-        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.FindAsync``1(System.Object,System.Threading.CancellationToken)">
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.FindAsync``1(System.Object)">
             <summary>
             Get entity by id where the provided id is equal to the entity id.
             </summary>
             <typeparam name="TEntity">The entity type to return.</typeparam>
             <param name="id">The entity id to return.</param>
-            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns entity id is equal to <paramref name="id"/>.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.SaveChangesAsync(System.Threading.CancellationToken)">
@@ -225,6 +227,17 @@
             <param name="entity">THe list of entities to add.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns number of rows added.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.UpdateAsync``2(System.Object,``0,System.Threading.CancellationToken)">
+            <summary>
+            Update entity.
+            </summary>
+            <typeparam name="TEntity">The entity to update.</typeparam>
+            <typeparam name="TResult">The result type to return.</typeparam>
+            <param name="id">The entity id.</param>
+            <param name="entity">The new entity value.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns number of rows updated.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Infrastructure.SalesRepository">
             <summary>

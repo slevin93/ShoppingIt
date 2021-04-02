@@ -12,17 +12,18 @@ namespace ShoppingIt.Crm.Core.Models.Product
     public class ProductModel
     {
         /// <summary>
-        /// Gets or sets the product name.
+        /// Gets or sets product name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the description.
+        /// Gets or sets description.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the price.
+        /// Gets or sets sale price,
+        /// this will be the price the customer pays.
         /// </summary>
         public decimal SalesPrice { get; set; }
 
@@ -33,9 +34,29 @@ namespace ShoppingIt.Crm.Core.Models.Product
         public decimal WholePrice { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether we pay vat on this product.
+        /// </summary>
+        public bool IsVattable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount we have in stock.
+        /// </summary>
+        public int Stock { get; set; }
+
+        /// <summary>
         /// Gets or sets the link to the whole seller where we buy.
         /// </summary>
         public string WholeSaleLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets the linked picture as an array.
+        /// </summary>
+        public string PictureLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the product is active or not.
+        /// </summary>
+        public bool IsActive { get; set; }
     }
 
     /// <summary>

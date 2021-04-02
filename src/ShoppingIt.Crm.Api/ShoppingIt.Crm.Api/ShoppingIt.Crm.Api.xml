@@ -136,6 +136,15 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns delete product id.</returns>
         </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.UpdateProduct(System.Int32,ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
+            <summary>
+            Updates product with provided details.
+            </summary>
+            <param name="id">The product id.</param>
+            <param name="productModel">The product model.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns newly updated product.</returns>
+        </member>
         <member name="T:ShoppingIt.Crm.Api.Controllers.SalesController">
             <summary>
             Handles queries relating to sales.
