@@ -31,10 +31,10 @@ namespace ShoppingIt.Crm.Core.Services.Sales
             return await salesRepository.AddItemToSaleAsync(new SaleItem()
             {
                 ProductId = saleItem.ProductId,
-                Price = product.Price,
+                Price = product.SalesPrice,
                 Vat = 00.00m,
                 Quantity = saleItem.Quantity,
-                Total = saleItem.Quantity * product.Price
+                Total = saleItem.Quantity * product.SalesPrice
             }, cancellationToken);
         }
 
@@ -47,10 +47,10 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                 await salesRepository.AddItemToSaleAsync(new SaleItem()
                 {
                     ProductId = saleItem.ProductId,
-                    Price = product.Price,
+                    Price = product.SalesPrice,
                     Vat = 00.00m,
                     Quantity = saleItem.Quantity,
-                    Total = saleItem.Quantity * product.Price
+                    Total = saleItem.Quantity * product.SalesPrice
                 }, cancellationToken);
             }
         }
@@ -76,10 +76,10 @@ namespace ShoppingIt.Crm.Core.Services.Sales
                 {
                     SaleId = newSale.SaleId,
                     ProductId = product.ProductId,
-                    Price = product.Price,
+                    Price = product.SalesPrice,
                     Vat = 00.00m,
                     Quantity = saleItem.Quantity,
-                    Total = saleItem.Quantity * product.Price
+                    Total = saleItem.Quantity * product.SalesPrice
                 });
             }
 
