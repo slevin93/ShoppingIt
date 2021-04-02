@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShoppingIt.Crm.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:ShoppingIt.Crm.Domain.Account">
+            <summary>
+            Defines user account details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.AccountId">
+            <summary>
+            Gets or sets account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.CompanyId">
+            <summary>
+            Gets or sets assigned company id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.Email">
+            <summary>
+            Gets or sets email.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.Password">
+            <summary>
+            Gets or sets password.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.Salt">
+            <summary>
+            Gets or sets password salt.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.FirstName">
+            <summary>
+            Gets or sets first name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.LastName">
+            <summary>
+            Gets or sets last name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.LoginAttempt">
+            <summary>
+            Gets or sets login attempts.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.IsLocked">
+            <summary>
+            Gets or sets a value indicating whether account locked.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.UnlockDateTime">
+            <summary>
+            Gets or sets unlock date time.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.TimeStamp">
+            <summary>
+            Gets or sets time stamp account was created.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.AssignedAccountTypes">
+            <summary>
+            Gets or sets the assigned account types.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.Sales">
+            <summary>
+            Gets or sets the sales.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Account.Company">
+            <summary>
+            Gets or sets the company the account is assigned to.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.AccountType">
+            <summary>
+            Defines account types.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AccountType.AccountTypeId">
+            <summary>
+            Gets or sets the account type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AccountType.Name">
+            <summary>
+            Gets or sets the account type name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AccountType.Description">
+            <summary>
+            Gets or sets the account type description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AccountType.AssignedAccountTypes">
+            <summary>
+            Gets or sets the assigned account types.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.AssignedAccountType">
+            <summary>
+            Defines the link between accounts and account types.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AssignedAccountType.AssignedAccountTypeId">
+            <summary>
+            Gets or sets the assigned account type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AssignedAccountType.AccountId">
+            <summary>
+            Gets or sets the account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AssignedAccountType.AccountTypeId">
+            <summary>
+            Gets or sets the account type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AssignedAccountType.Account">
+            <summary>
+            Gets or sets the account.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.AssignedAccountType.AccountType">
+            <summary>
+            Gets or sets the account type.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.Company">
+            <summary>
+            Gets or sets the company for each user.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.CompanyId">
+            <summary>
+            Gets or sets the company id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.Name">
+            <summary>
+            Gets or sets the company name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.Description">
+            <summary>
+            Gets or sets the company description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.AddressLine1">
+            <summary>
+            Gets or sets the company address line 1.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.AddressLine2">
+            <summary>
+            Gets or sets the company address line 2.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.AddressLine3">
+            <summary>
+            Gets or sets the company address line 3.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.AddressLine4">
+            <summary>
+            Gets or sets the company address line 4.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Company.Accounts">
+            <summary>
+            Gets or sets the list of users assigned to this company.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.PaymentType">
+            <summary>
+            Defines the different payment types.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.PaymentType.PaymentTypeId">
+            <summary>
+            Gets or sets the payment type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.PaymentType.Name">
+            <summary>
+            Gets or sets the payment type name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.PaymentType.Description">
+            <summary>
+            Gets or sets the payment type description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.PaymentType.PaymentTypes">
+            <summary>
+            Gets or sets the payment type.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.Product">
+            <summary>
+            Gets or sets products.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.ProductId">
+            <summary>
+            Gets or sets product id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.Name">
+            <summary>
+            Gets or sets product name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.Description">
+            <summary>
+            Gets or sets description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.SalesPrice">
+            <summary>
+            Gets or sets sale price,
+            this will be the price the customer pays.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.WholePrice">
+            <summary>
+            Gets or sets the whole sale price,
+            this will be the price we pay.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.IsVattable">
+            <summary>
+            Gets or sets a value indicating whether we pay vat on this product.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.Stock">
+            <summary>
+            Gets or sets the amount we have in stock.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.WholeSaleLink">
+            <summary>
+            Gets or sets the link to the whole seller where we buy.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.PictureLink">
+            <summary>
+            Gets or sets the linked picture as an array.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Product.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the product is active or not.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.Sale">
+            <summary>
+            Defines sales.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.SaleId">
+            <summary>
+            Gets or sets the sale id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.AccountId">
+            <summary>
+            Gets or sets the account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.Total">
+            <summary>
+            Gets or sets the total.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.TotalItems">
+            <summary>
+            Gets or sets total items sold.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.TimeStamp">
+            <summary>
+            Gets or sets time stamp.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.PaymentTypeId">
+            <summary>
+            Gets or sets the payment type.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.SalesStatusId">
+            <summary>
+            Gets or sets the sales status id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.Account">
+            <summary>
+            Gets or sets account.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.SaleItems">
+            <summary>
+            Gets or sets the sales items.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.SalesStatus">
+            <summary>
+            Gets or sets the sale status.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.Sale.PaymentType">
+            <summary>
+            Gets or sets the payment type.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.SaleItem">
+            <summary>
+            Defines the item of sale.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.SaleItemId">
+            <summary>
+            Gets or sets sale item id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.SaleId">
+            <summary>
+            Gets or sets sale id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.ProductId">
+            <summary>
+            Gets or sets product id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Price">
+            <summary>
+            Gets or sets price of sale.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Vat">
+            <summary>
+            Gets or sets vat.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Quantity">
+            <summary>
+            Gets or sets the quantity of items.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Total">
+            <summary>
+            Gets or sets total item (<see cref="P:ShoppingIt.Crm.Domain.SaleItem.Price"/> * <see cref="P:ShoppingIt.Crm.Domain.SaleItem.Quantity"/>).
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Product">
+            <summary>
+            Gets or sets the parent product.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SaleItem.Sale">
+            <summary>
+            Gets or sets the parent sale.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Domain.SalesStatus">
+            <summary>
+            Defines the sale status.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SalesStatus.SalesStatusId">
+            <summary>
+            Gets or sets the sales status id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SalesStatus.Name">
+            <summary>
+            Gets or sets the status name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SalesStatus.Description">
+            <summary>
+            Gets or sets the sales status description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Domain.SalesStatus.Sales">
+            <summary>
+            Gets or sets the sales items.
+            </summary>
+        </member>
+    </members>
+</doc>

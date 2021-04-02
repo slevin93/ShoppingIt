@@ -1,4 +1,7 @@
-﻿
+﻿// <copyright file="IHashService.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
+
 namespace ShoppingIt.Crm.Core.Services.Hash
 {
     /// <summary>
@@ -17,7 +20,7 @@ namespace ShoppingIt.Crm.Core.Services.Hash
         /// </summary>
         /// <param name="str">The string to hash.</param>
         /// <param name="salt">The salt to use with the hash.</param>
-        /// <returns>Returns newly created hash from <see cref="str"/> and <see cref="salt"/>.</returns>
+        /// <returns>Returns newly created hash from <paramref name="str"/> and <paramref name="salt"/>.</returns>
         string Hash(string str, string salt);
 
         /// <summary>

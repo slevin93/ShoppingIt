@@ -1,0 +1,947 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShoppingIt.Crm.Core</name>
+    </assembly>
+    <members>
+        <member name="T:ShoppingIt.Crm.Core.Dto.AccessToken">
+            <summary>
+            Define user access token.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.AccessToken.Token">
+            <summary>
+            Gets or sets the bearer token.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.AccessToken.Expiry">
+            <summary>
+            Gets or sets the token expiry date time.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Accounts.AccountAuthDetails">
+            <summary>
+            Define account details with credentials.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountAuthDetails.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountAuthDetails.Salt">
+            <summary>
+            Gets or sets the password salt.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails">
+            <summary>
+            Define account details without credentials.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.AccountId">
+            <summary>
+            Gets or sets account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.CompanyId">
+            <summary>
+            Gets or sets the assigned company id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.Email">
+            <summary>
+            Gets or sets email.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.LoginAttempt">
+            <summary>
+            Gets or sets the login attempt.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.IsLocked">
+            <summary>
+            Gets or sets a value indicating whether the account is locked.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Accounts.AccountDetails.UnlockDataTime">
+            <summary>
+            Gets or sets the unlock date time.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails">
+            <summary>
+            Defines company details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.CompanyId">
+            <summary>
+            Gets or sets the company id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.Name">
+            <summary>
+            Gets or sets the company name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.Description">
+            <summary>
+            Gets or sets the company description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.AddressLine1">
+            <summary>
+            Gets or sets the address line 1.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.AddressLine2">
+            <summary>
+            Gets or sets the address line 2.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.AddressLine3">
+            <summary>
+            Gets or sets the address line 3.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Company.CompanyDetails.AddressLine4">
+            <summary>
+            Gets or sets the address line 4.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Item">
+            <summary>
+            Defines items.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Item.Name">
+            <summary>
+            Gets or sets the item name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Item.Description">
+            <summary>
+            Gets or sets the item description.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Lookup.SalesStatusDetails">
+            <summary>
+            Defines sales status.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.SalesStatusDetails.SalesStatusId">
+            <summary>
+            Gets or sets the Item id.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Products.DeleteProduct">
+            <summary>
+            Defines delete product dto.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.DeleteProduct.Id">
+            <summary>
+            Gets or sets delete product id.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Products.ProductDetails">
+            <summary>
+            Defines product details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.ProductId">
+            <summary>
+            Gets or sets product id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.Name">
+            <summary>
+            Gets or sets product name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.Description">
+            <summary>
+            Gets or sets description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.SalesPrice">
+            <summary>
+            Gets or sets price.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.WholePrice">
+            <summary>
+            Gets or sets the whole price.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.IsVattable">
+            <summary>
+            Gets or sets a value indicating whether product is vattable.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.Stock">
+            <summary>
+            Gets or sets the stock.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.WholeSaleLink">
+            <summary>
+            Gets or sets the whole sale link.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.PictureLink">
+            <summary>
+            Gets or sets the product picture.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Products.ProductDetails.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the product is active or not.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails">
+            <summary>
+            Defines sales details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.SaleId">
+            <summary>
+            Gets or sets the sale id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.AccountId">
+            <summary>
+            Gets or sets the account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.TimeStamp">
+            <summary>
+            Gets or sets the time stamp.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails">
+            <summary>
+            Defines the item of sale.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.SaleItemId">
+            <summary>
+            Gets or sets sale item id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.ProductId">
+            <summary>
+            Gets or sets product id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Product">
+            <summary>
+            Gets or sets the product name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Price">
+            <summary>
+            Gets or sets price of sale.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Vat">
+            <summary>
+            Gets or sets vat.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Quantity">
+            <summary>
+            Gets or sets the quantity of items.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Total">
+            <summary>
+            Gets total item (<see cref="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Price"/> * <see cref="P:ShoppingIt.Crm.Core.Dto.Sales.SalesItemDetails.Quantity"/>).
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Account.LoginModel">
+            <summary>
+            The login request model.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.LoginModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.LoginModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Account.LoginValidator">
+            <summary>
+            Implement the login validation.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Models.Account.LoginValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Models.Account.LoginValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Account.RegisterModel">
+            <summary>
+            The register request model.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.RegisterModel.CompanyId">
+            <summary>
+            Gets or sets the company to assigned to user.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.RegisterModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.RegisterModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Account.RegisterModel.ConfirmPassword">
+            <summary>
+            Gets or sets the confirm password.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Account.AccountValidator">
+            <summary>
+            Implement account validation.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Models.Account.AccountValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Models.Account.AccountValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel">
+            <summary>
+            The register company request model.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.Name">
+            <summary>
+            Gets or sets the company name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.Description">
+            <summary>
+            Gets or sets the company description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.AddressLine1">
+            <summary>
+            Gets or sets the address line 1.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.AddressLine2">
+            <summary>
+            Gets or sets the address line 2.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.AddressLine3">
+            <summary>
+            Gets or sets the address line 3.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.AddressLine4">
+            <summary>
+            Gets or sets the address line 4.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel.Accounts">
+            <summary>
+            Gets or sets the list of user accounts.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyValidator">
+            <summary>
+            Implement register company validation.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Models.Company.RegisterCompanyValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Product.ProductModel">
+            <summary>
+            Defines details for new product.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.Name">
+            <summary>
+            Gets or sets the product name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.SalesPrice">
+            <summary>
+            Gets or sets the price.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.WholePrice">
+            <summary>
+            Gets or sets the whole sale price,
+            this will be the price we pay.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Product.ProductModel.WholeSaleLink">
+            <summary>
+            Gets or sets the link to the whole seller where we buy.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Product.ProductValidator">
+            <summary>
+            Implement product validation.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Models.Product.ProductValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Models.Product.ProductValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Sales.SaleItemModel">
+            <summary>
+            Contains sale time details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleItemModel.ProductId">
+            <summary>
+            Gets or sets the product id to add to sale.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleItemModel.Quantity">
+            <summary>
+            Gets or sets the amount of products for order.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Sales.SaleModel">
+            <summary>
+            Defines order details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleModel.AccountId">
+            <summary>
+            Gets or sets the account to add the order to.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleModel.PaymentTypeId">
+            <summary>
+            Gets or sets defines payment type.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleModel.SaleStatusId">
+            <summary>
+            Gets or sets define sales status.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.SaleModel.Items">
+            <summary>
+            Gets or sets the products assigned to the sale record.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Validator">
+            <summary>
+            Base class for fluent validation.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Repository.IAccountRepository">
+            <summary>
+            Defines the account data access.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IAccountRepository.GetAccountByEmailAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns account auth details from the database where email = <paramref name="email"/>.
+            </summary>
+            <param name="email">The email to search.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns account auth details where email addresses match query.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IAccountRepository.RegisterAsync(ShoppingIt.Crm.Domain.Account)">
+            <summary>
+            Registers new account.
+            </summary>
+            <param name="account">The account to save to database.</param>
+            <returns>Returns newly created account.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IAccountRepository.GetAccountsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get list of accounts.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns list of accounts.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Repository.ICompanyRepository">
+            <summary>
+            Interface defines company data access.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ICompanyRepository.RegisterCompanyAsync(ShoppingIt.Crm.Domain.Company,System.Threading.CancellationToken)">
+            <summary>
+            Register a new company.
+            </summary>
+            <param name="company">The company details.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created company details.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ICompanyRepository.GetCompanyByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets company details by company id.
+            </summary>
+            <param name="id">The company id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created company details.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Repository.ILookupRepository">
+            <summary>
+            Define lookup data access.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ILookupRepository.GetSaleStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of sales status.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of sales status.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Repository.IProductRepository">
+            <summary>
+            Defines data access for products.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.GetProductsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of all products from database.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of products.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.GetProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get product by product id.
+            </summary>
+            <param name="productId">The productId id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns product where product id equals provided product id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.GetProductByNameAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get product by product name.
+            </summary>
+            <param name="name">The product name to search.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns product where product name equals provided product name.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.AddProductAsync(ShoppingIt.Crm.Domain.Product,System.Threading.CancellationToken)">
+            <summary>
+            Adds new product to database.
+            </summary>
+            <param name="product">The product to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created product.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.IProductRepository.DeleteProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Deletes products by product id.
+            Note: This will not delete the product from the data,
+            it will only set is active as false.
+            </summary>
+            <param name="id">The product id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns deleted product id.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Repository.ISalesRepository">
+            <summary>
+            Defines sales data access.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.GetSalesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get all sales.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of sales.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.GetSaleByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get sale by id.
+            </summary>
+            <param name="saleId">The id for the sale to return.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns sale details where sale id equals sale id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.CreateSaleAsync(ShoppingIt.Crm.Domain.Sale,System.Threading.CancellationToken)">
+            <summary>
+            Create new sale record.
+            </summary>
+            <param name="sale">Sale details.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newrly created sale record.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.AddItemToSaleAsync(ShoppingIt.Crm.Domain.SaleItem,System.Threading.CancellationToken)">
+            <summary>
+            Add item record to sale.
+            </summary>
+            <param name="saleItem">Sale item to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created sale item.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.AddItemToSaleAsync(ShoppingIt.Crm.Domain.SaleItem[],System.Threading.CancellationToken)">
+            <summary>
+            Add item record to sale.
+            </summary>
+            <param name="saleItem">List of sale item to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns total number of rows added.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets sales item from the provided sale id.
+            </summary>
+            <param name="saleId">The sale id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns an array of sale items where sale id equals provided sale id.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Accounts.AccountService">
+            <summary>
+            Implement account service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.AccountService.#ctor(ShoppingIt.Crm.Core.Repository.IAccountRepository,ShoppingIt.Crm.Core.Services.Hash.IHashService,Microsoft.Extensions.Configuration.IConfiguration,ShoppingIt.Crm.Core.Services.Error.IErrorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Accounts.AccountService"/> class.
+            </summary>
+            <param name="accountRepository">The account repository.</param>
+            <param name="hashService">The hash service.</param>
+            <param name="configuration">The configuration.</param>
+            <param name="errorService">The error service.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.AccountService.RegisterAsync(ShoppingIt.Crm.Core.Models.Account.RegisterModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.AccountService.LoginAsync(ShoppingIt.Crm.Core.Models.Account.LoginModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.AccountService.GetAccountsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Accounts.IAccountService">
+            <summary>
+            Defines business logic for accounts.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.IAccountService.RegisterAsync(ShoppingIt.Crm.Core.Models.Account.RegisterModel,System.Threading.CancellationToken)">
+            <summary>
+            Register new account.
+            </summary>
+            <param name="accountModel">Account details to register.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Newly created account details.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.IAccountService.LoginAsync(ShoppingIt.Crm.Core.Models.Account.LoginModel,System.Threading.CancellationToken)">
+            <summary>
+            Login with user where credentials match provided login details.
+            </summary>
+            <param name="loginModel">The login details.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns account where credentials match.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Accounts.IAccountService.GetAccountsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get list of accounts.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns list of accounts.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Companies.CompanyService">
+            <summary>
+            Implement company service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Companies.CompanyService.#ctor(ShoppingIt.Crm.Core.Repository.ICompanyRepository,ShoppingIt.Crm.Core.Services.Accounts.IAccountService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Companies.CompanyService"/> class.
+            </summary>
+            <param name="companyRepository">The company repository.</param>
+            <param name="accountService">The account service.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Companies.CompanyService.GetCompanyByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Companies.CompanyService.RegisterCompanyAsync(ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Companies.ICompanyService">
+            <summary>
+            Defines company service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Companies.ICompanyService.RegisterCompanyAsync(ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel,System.Threading.CancellationToken)">
+            <summary>
+            Register a new company.
+            </summary>
+            <param name="company">The company details.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created company details.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Companies.ICompanyService.GetCompanyByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets company details by company id.
+            </summary>
+            <param name="id">The company id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created company details.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Error.ErrorService">
+            <summary>
+            Implements error service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Error.ErrorService.HandleBadRequest(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Error.IErrorService">
+            <summary>
+            Defines error service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Error.IErrorService.HandleBadRequest(System.String)">
+            <summary>
+            Handle bad request errors.
+            </summary>
+            <param name="message">The error message to return to client.</param>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Hash.HashService">
+            <summary>
+            Implementation of <see cref="T:ShoppingIt.Crm.Core.Services.Hash.IHashService"/>.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.HashService.GenerateSalt">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.HashService.Hash(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.HashService.IsValid(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Hash.IHashService">
+            <summary>
+            Defines interfaces for hashing service.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.IHashService.GenerateSalt">
+            <summary>
+            Creates a unique salt.
+            </summary>
+            <returns>Returns newly created salt as base64 encoding.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.IHashService.Hash(System.String,System.String)">
+            <summary>
+            Hash string using salt.
+            </summary>
+            <param name="str">The string to hash.</param>
+            <param name="salt">The salt to use with the hash.</param>
+            <returns>Returns newly created hash from <paramref name="str"/> and <paramref name="salt"/>.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Hash.IHashService.IsValid(System.String,System.String)">
+            <summary>
+            Checks if hash 1 is equal to hash 2.
+            </summary>
+            <param name="hash1">The first hash.</param>
+            <param name="hash2">The second hash.</param>
+            <returns>Returns true if both hashes are equal in value, false if not.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.ILookupService">
+            <summary>
+            Defines the lookup service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.ILookupService.GetSaleStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of sales status.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of sales status.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.LookupService">
+            <summary>
+            Implements lookup service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.LookupService.#ctor(ShoppingIt.Crm.Core.Repository.ILookupRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.LookupService"/> class.
+            </summary>
+            <param name="repository">The loopup reposutory.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.LookupService.GetSaleStatusAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Products.IProductService">
+            <summary>
+            Define product business process.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.GetProductsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of all products from database.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of products.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.GetProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get product by product id.
+            </summary>
+            <param name="productId">The productId id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns product where product id equals provided product id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.GetProductByNameAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get product by product name.
+            </summary>
+            <param name="name">The product name to search.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns product where product name equals provided product name.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.AddProductAsync(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
+            <summary>
+            Adds new product to database.
+            </summary>
+            <param name="product">The product to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created product.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.IProductService.DeleteProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Deletes products by product id.
+            Note: This will not delete the product from the data,
+            it will only set is active as false.
+            </summary>
+            <param name="id">The product id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns deleted product id as <see cref="T:ShoppingIt.Crm.Core.Dto.Products.DeleteProduct"/>.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Products.ProductService">
+            <summary>
+            Implements product service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.#ctor(ShoppingIt.Crm.Core.Repository.IProductRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Products.ProductService"/> class.
+            </summary>
+            <param name="productRepository">The product repository.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.AddProductAsync(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.DeleteProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.GetProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.GetProductByNameAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.GetProductsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Sales.ISalesService">
+            <summary>
+            Interface defines sales service operations.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.GetSalesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get all sales.
+            </summary>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns array of sales.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.CreateSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleModel,System.Threading.CancellationToken)">
+            <summary>
+            Create new sale record.
+            </summary>
+            <param name="sale">Sale details.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newrly created sale record.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.AddItemToSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleItemModel,System.Threading.CancellationToken)">
+            <summary>
+            Add item record to sale.
+            </summary>
+            <param name="saleItem">Sale item to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly created sale item.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets sales item from the provided sale id.
+            </summary>
+            <param name="saleId">The sale id.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns an array of sale items where sale id equals provided sale id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.AddItemToSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleItemModel[],System.Threading.CancellationToken)">
+            <summary>
+            Add item record to sale.
+            </summary>
+            <param name="saleItems">List of sale item to add.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.GetSaleItemByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get sale item by sale id.
+            </summary>
+            <param name="id">The sale item id to get.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Return sales details.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Services.Sales.SalesService">
+            <summary>
+            The sales service.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.#ctor(ShoppingIt.Crm.Core.Repository.ISalesRepository,ShoppingIt.Crm.Core.Services.Products.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Sales.SalesService"/> class.
+            </summary>
+            <param name="salesRepository">The sales repository.</param>
+            <param name="productService">The product repository.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.AddItemToSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleItemModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.AddItemToSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleItemModel[],System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.CreateSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleModel,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.GetSaleItemByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.GetSalesAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

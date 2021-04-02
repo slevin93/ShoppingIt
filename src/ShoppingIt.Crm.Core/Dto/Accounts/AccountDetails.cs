@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="AccountDetails.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Dto.Accounts
 {
+    using System;
+
     /// <summary>
     /// Define account details without credentials.
     /// </summary>
@@ -32,7 +32,7 @@ namespace ShoppingIt.Crm.Core.Dto.Accounts
         public int LoginAttempt { get; set; }
 
         /// <summary>
-        /// Gets or sets if the account is locked.
+        /// Gets or sets a value indicating whether the account is locked.
         /// </summary>
         public bool IsLocked { get; set; }
 

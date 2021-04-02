@@ -1,14 +1,17 @@
-﻿using ShoppingIt.Crm.Core.Dto.Sales;
-using ShoppingIt.Crm.Core.Models.Sales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="ISalesService.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Services.Sales
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Core.Models.Sales;
+
+    /// <summary>
+    /// Interface defines sales service operations.
+    /// </summary>
     public interface ISalesService
     {
         /// <summary>
@@ -45,8 +48,9 @@ namespace ShoppingIt.Crm.Core.Services.Sales
         /// <summary>
         /// Add item record to sale.
         /// </summary>
-        /// <param name="saleItem">List of sale item to add.</param>
+        /// <param name="saleItems">List of sale item to add.</param>
         /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         Task AddItemToSaleAsync(SaleItemModel[] saleItems, CancellationToken cancellationToken);
 
         /// <summary>

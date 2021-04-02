@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SaleItemModel.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Models.Sales
 {
+    /// <summary>
+    /// Contains sale time details.
+    /// </summary>
     public class SaleItemModel
     {
         /// <summary>
@@ -14,7 +15,7 @@ namespace ShoppingIt.Crm.Core.Models.Sales
         public int ProductId { get; set; }
 
         /// <summary>
-        /// The amount of products for order.
+        /// Gets or sets the amount of products for order.
         /// </summary>
         public int Quantity { get; set; }
     }

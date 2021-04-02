@@ -1,14 +1,16 @@
-﻿using ShoppingIt.Crm.Core.Dto;
-using ShoppingIt.Crm.Core.Dto.Lookup;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="ILookupService.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Services
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Lookup;
+
+    /// <summary>
+    /// Defines the lookup service operations.
+    /// </summary>
     public interface ILookupService
     {
         /// <summary>

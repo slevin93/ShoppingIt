@@ -1,7 +1,11 @@
-﻿using FluentValidation;
+﻿// <copyright file="ProductModel.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Models.Product
 {
+    using FluentValidation;
+
     /// <summary>
     /// Defines details for new product.
     /// </summary>
@@ -34,15 +38,23 @@ namespace ShoppingIt.Crm.Core.Models.Product
         public string WholeSaleLink { get; set; }
     }
 
+    /// <summary>
+    /// Implement product validation.
+    /// </summary>
+#pragma warning disable SA1402 // File may only contain a single type
     public class ProductValidator : AbstractValidator<ProductModel>
+#pragma warning restore SA1402 // File may only contain a single type
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductValidator"/> class.
+        /// </summary>
         public ProductValidator()
         {
-            RuleFor(x => x.Name).NotNull().NotEmpty();
+            this.RuleFor(x => x.Name).NotNull().NotEmpty();
 
-            RuleFor(x => x.Description).NotNull().NotEmpty();
+            this.RuleFor(x => x.Description).NotNull().NotEmpty();
 
-            RuleFor(x => x.SalesPrice).GreaterThanOrEqualTo(00.00m);
+            this.RuleFor(x => x.SalesPrice).GreaterThanOrEqualTo(00.00m);
         }
     }
 }

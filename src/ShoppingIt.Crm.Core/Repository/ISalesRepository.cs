@@ -1,14 +1,14 @@
-﻿using ShoppingIt.Crm.Core.Dto.Sales;
-using ShoppingIt.Crm.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="ISalesRepository.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Repository
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Domain;
+
     /// <summary>
     /// Defines sales data access.
     /// </summary>

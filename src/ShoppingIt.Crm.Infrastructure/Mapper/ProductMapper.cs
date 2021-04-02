@@ -1,14 +1,24 @@
-﻿using AutoMapper;
-using ShoppingIt.Crm.Core.Dto.Products;
-using ShoppingIt.Crm.Domain;
+﻿// <copyright file="ProductMapper.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Infrastructure.Mapper
 {
+    using AutoMapper;
+    using ShoppingIt.Crm.Core.Dto.Products;
+    using ShoppingIt.Crm.Domain;
+
+    /// <summary>
+    /// Implement mapper profile for product..
+    /// </summary>
     public class ProductMapper : Profile
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductMapper"/> class.
+        /// </summary>
         public ProductMapper()
         {
-            CreateMap<Product, ProductDetails>()
+            this.CreateMap<Product, ProductDetails>()
                   .ReverseMap();
         }
     }

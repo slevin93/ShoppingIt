@@ -1,14 +1,16 @@
-﻿using ShoppingIt.Crm.Core.Dto;
-using ShoppingIt.Crm.Core.Dto.Lookup;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="ILookupRepository.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Core.Repository
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using ShoppingIt.Crm.Core.Dto.Lookup;
+
+    /// <summary>
+    /// Define lookup data access.
+    /// </summary>
     public interface ILookupRepository
     {
         /// <summary>

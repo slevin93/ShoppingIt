@@ -1,9 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="Account.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Defines user account details.
     /// </summary>
@@ -50,7 +53,7 @@ namespace ShoppingIt.Crm.Domain
         public int LoginAttempt { get; set; }
 
         /// <summary>
-        /// Gets or sets is account locked.
+        /// Gets or sets a value indicating whether account locked.
         /// </summary>
         public bool IsLocked { get; set; }
 
@@ -64,12 +67,18 @@ namespace ShoppingIt.Crm.Domain
         /// </summary>
         public DateTime TimeStamp { get; set; }
 
+        /// <summary>
+        /// Gets or sets the assigned account types.
+        /// </summary>
         public virtual ICollection<AssignedAccountType> AssignedAccountTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the sales.
+        /// </summary>
         public virtual ICollection<Sale> Sales { get; set; }
 
         /// <summary>
-        /// The company the account is assigned to.
+        /// Gets or sets the company the account is assigned to.
         /// </summary>
         public virtual Company Company { get; set; }
     }

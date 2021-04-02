@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShoppingIt.Crm.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:ShoppingIt.Crm.Infrastructure.AccountRepository">
+            <summary>
+            The account data access layer.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.AccountRepository.#ctor(ShoppingIt.Crm.Infrastructure.ShoppingItContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.AccountRepository"/> class.
+            </summary>
+            <param name="context">The ShoppingIt db context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.AccountRepository.GetAccountByEmailAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.AccountRepository.GetAccountsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.AccountRepository.RegisterAsync(ShoppingIt.Crm.Domain.Account)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.CompanyRepository">
+            <summary>
+            The company data access layer.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.CompanyRepository.#ctor(ShoppingIt.Crm.Infrastructure.ShoppingItContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.CompanyRepository"/> class.
+            </summary>
+            <param name="context">The ShoppingIt db context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.CompanyRepository.GetCompanyByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.CompanyRepository.RegisterCompanyAsync(ShoppingIt.Crm.Domain.Company,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.LookupRepository">
+            <summary>
+            Lookup data access layer.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.#ctor(ShoppingIt.Crm.Infrastructure.ShoppingItContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.LookupRepository"/> class.
+            </summary>
+            <param name="context">The ShoppingIt db context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.GetSaleStatusAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Mapper.AccountMapper">
+            <summary>
+            Implement mapper profile for account.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Mapper.AccountMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.Mapper.AccountMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Mapper.CompanyMapper">
+            <summary>
+            Implement mapper profile for company.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Mapper.CompanyMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.Mapper.CompanyMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Mapper.ItemMapper">
+            <summary>
+            Implement mapper profile for item.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Mapper.ItemMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.Mapper.ItemMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Mapper.ProductMapper">
+            <summary>
+            Implement mapper profile for product..
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Mapper.ProductMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.Mapper.ProductMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Mapper.SalesMapper">
+            <summary>
+            Implement mapper profile for sales.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Mapper.SalesMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.Mapper.SalesMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.Migrations.Initial">
+            <summary>
+            Initial db migration.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.ProductRepository">
+            <summary>
+            Product data access layer.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.#ctor(ShoppingIt.Crm.Infrastructure.ShoppingItContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.ProductRepository"/> class.
+            </summary>
+            <param name="context">The ShoppingIt db context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.AddProductAsync(ShoppingIt.Crm.Domain.Product,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.DeleteProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.GetProductByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.GetProductByNameAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ProductRepository.GetProductsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.RepositoryBase">
+            <summary>
+            Defines the base repository, abstracting away the db commands.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.#ctor(Microsoft.EntityFrameworkCore.DbContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.RepositoryBase"/> class.
+            </summary>
+            <param name="context">The dbcontext.</param>
+            <param name="mapper">The IMapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.FirstOrDefaultAsync``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Returns the first result from the query defined in <paramref name="where"/>.
+            If there is no data, return null.
+            </summary>
+            <typeparam name="TEntity">The entity to search.</typeparam>
+            <typeparam name="TResult">The mapped result.</typeparam>
+            <param name="where">Define the where clause in linq.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns the mapped result.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.FindAsync``1(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Get entity by id where the provided id is equal to the entity id.
+            </summary>
+            <typeparam name="TEntity">The entity type to return.</typeparam>
+            <param name="id">The entity id to return.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns entity id is equal to <paramref name="id"/>.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Save changes to entity states.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns number of entities state updated.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.GetArrayAsync``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            Gets array of entities where entity qualify for the provided <paramref name="where"/>.
+            </summary>
+            <typeparam name="TEntity">The entity to get from db.</typeparam>
+            <typeparam name="TResult">The response type.</typeparam>
+            <param name="where">The where clause to search entities against.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns entities where entity state matches the where clause.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.GetArrayAsync``2(System.Threading.CancellationToken)">
+            <summary>
+            Get all items stored with provided type.
+            </summary>
+            <typeparam name="TEntity">The entity type to return.</typeparam>
+            <typeparam name="TResult">The result to return.</typeparam>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns array of all items found in entity table.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.AddAsync``2(``0,System.Threading.CancellationToken)">
+            <summary>
+            Adds new record to the database.
+            </summary>
+            <typeparam name="TEntity">The entity to add to the database.</typeparam>
+            <typeparam name="TResult">The mapped response from the database.</typeparam>
+            <param name="entity">The entity to save to the database.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns the newrly created entity as the mapped response.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.RepositoryBase.AddRangeAsync``1(``0[],System.Threading.CancellationToken)">
+            <summary>
+            Adds multiple rows to database.
+            </summary>
+            <typeparam name="TEntity">The entity to add, these are founds in domains.</typeparam>
+            <param name="entity">THe list of entities to add.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns number of rows added.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.SalesRepository">
+            <summary>
+            Sales data repository.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.#ctor(ShoppingIt.Crm.Infrastructure.ShoppingItContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.SalesRepository"/> class.
+            </summary>
+            <param name="context">The ShoppingIt dbcontext.</param>
+            <param name="mapper">The IMapper.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.AddItemToSaleAsync(ShoppingIt.Crm.Domain.SaleItem,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.AddItemToSaleAsync(ShoppingIt.Crm.Domain.SaleItem[],System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.CreateSaleAsync(ShoppingIt.Crm.Domain.Sale,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSaleByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSalesAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:ShoppingIt.Crm.Infrastructure.ShoppingItContext">
+            <summary>
+            ShoppingIt database context.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.ShoppingItContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ShoppingIt.Crm.Infrastructure.ShoppingItContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Infrastructure.ShoppingItContext"/> class.
+            </summary>
+            <param name="options">Database context options.</param>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.Accounts">
+            <summary>
+            Gets or sets the accounts dbset.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.AccountTypes">
+            <summary>
+            Gets or sets the account types dbset.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.AssignedAccountType">
+            <summary>
+            Gets or sets the assigned account type dbset.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.Products">
+            <summary>
+            Gets or sets the products dbset.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.Sale">
+            <summary>
+            Gets or sets the sale dbset.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Infrastructure.ShoppingItContext.SaleItem">
+            <summary>
+            Gets or sets the sale item dbset.
+            </summary>
+        </member>
+    </members>
+</doc>

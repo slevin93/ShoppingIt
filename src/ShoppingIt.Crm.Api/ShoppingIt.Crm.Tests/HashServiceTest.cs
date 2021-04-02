@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using ShoppingIt.Crm.Core.Services.Hash;
-using System;
 
 namespace ShoppingIt.Crm.Tests
 {

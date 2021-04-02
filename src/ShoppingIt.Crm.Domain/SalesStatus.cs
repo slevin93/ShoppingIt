@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SalesStatus.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Defines the sale status.
     /// </summary>
@@ -26,6 +26,9 @@ namespace ShoppingIt.Crm.Domain
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Gets or sets the sales items.
+        /// </summary>
         public virtual ICollection<Sale> Sales { get; set; }
     }
 }

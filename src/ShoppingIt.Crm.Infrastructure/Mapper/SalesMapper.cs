@@ -1,21 +1,26 @@
-﻿using AutoMapper;
-using ShoppingIt.Crm.Core.Dto.Sales;
-using ShoppingIt.Crm.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SalesMapper.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Infrastructure.Mapper
 {
+    using AutoMapper;
+    using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Domain;
+
+    /// <summary>
+    /// Implement mapper profile for sales.
+    /// </summary>
     public class SalesMapper : Profile
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SalesMapper"/> class.
+        /// </summary>
         public SalesMapper()
         {
-            CreateMap<Sale, SalesDetails>().ReverseMap();
+            this.CreateMap<Sale, SalesDetails>().ReverseMap();
 
-            CreateMap<SaleItem, SalesItemDetails>().ReverseMap();
+            this.CreateMap<SaleItem, SalesItemDetails>().ReverseMap();
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace ShoppingIt.Crm.Core.Dto.Products
+﻿// <copyright file="ProductDetails.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
+
+namespace ShoppingIt.Crm.Core.Dto.Products
 {
     /// <summary>
     /// Defines product details.
@@ -31,7 +35,7 @@
         public decimal WholePrice { get; set; }
 
         /// <summary>
-        /// Gets or sets is product is vattable.
+        /// Gets or sets a value indicating whether product is vattable.
         /// </summary>
         public bool IsVattable { get; set; }
 
@@ -51,7 +55,7 @@
         public string PictureLink { get; set; }
 
         /// <summary>
-        /// Gets or sets if the product is active or not.
+        /// Gets or sets a value indicating whether the product is active or not.
         /// </summary>
         public bool IsActive { get; set; }
     }

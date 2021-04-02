@@ -4,11 +4,41 @@
         <name>ShoppingIt.Crm.Api</name>
     </assembly>
     <members>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.AccountsController">
+            <summary>
+            Gabdkes queryes relating to accounts.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.AccountsController.#ctor(ShoppingIt.Crm.Core.Services.Accounts.IAccountService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.AccountsController"/> class.
+            </summary>
+            <param name="accountService">The injected account service.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.AccountsController.AccountDetails(System.Threading.CancellationToken)">
+            <summary>
+            Get user account details.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns found account details.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.AuthController">
+            <summary>
+            Handles queries relating to authentication.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.AuthController.#ctor(ShoppingIt.Crm.Core.Services.Accounts.IAccountService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.AuthController"/> class.
+            </summary>
+            <param name="accountService">The account service.</param>
+        </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.AuthController.Login(ShoppingIt.Crm.Core.Models.Account.LoginModel,System.Threading.CancellationToken)">
             <summary>
             Login with provided details.
             </summary>
             <param name="loginModel">Login information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns access token.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.AuthController.Register(ShoppingIt.Crm.Core.Models.Account.RegisterModel,System.Threading.CancellationToken)">
@@ -16,50 +46,120 @@
             Register account with provided details. Note, this is for public users not admin.
             </summary>
             <param name="registerModel">The account details to save.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns newly created account.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.CompanyController">
+            <summary>
+            Handles queries relating to company.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.CompanyController.#ctor(ShoppingIt.Crm.Core.Services.Companies.ICompanyService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.CompanyController"/> class.
+            </summary>
+            <param name="companyService">The injected company service.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.CompanyController.RegisterCompany(ShoppingIt.Crm.Core.Models.Company.RegisterCompanyModel,System.Threading.CancellationToken)">
+            <summary>
+            Create new company.
+            </summary>
+            <param name="companyModel">The company details.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns newly created company details.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.CompanyController.GetCompany(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get company by company id.
+            </summary>
+            <param name="id">The company id.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns company details where company id equals provided company id.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Api.Controllers.LookupsController">
             <summary>
             Get lookup items for dropdown lists.
             </summary>
         </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.#ctor(ShoppingIt.Crm.Core.Services.ILookupService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.LookupsController"/> class.
+            </summary>
+            <param name="lookupService">The injected lookup service.</param>
+        </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.GetSalesStatus(System.Threading.CancellationToken)">
             <summary>
             Get list of sales statuses.
             </summary>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns a list of sales status.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.ProductsController">
+            <summary>
+            Handles queries relating to products.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.#ctor(ShoppingIt.Crm.Core.Services.Products.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.ProductsController"/> class.
+            </summary>
+            <param name="productService">The injected product service.</param>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.AddProduct(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
             <summary>
             Add new product.
             </summary>
             <param name="productModel">The details for the new product to add.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Return newly created product.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.GetProducts(System.Threading.CancellationToken)">
             <summary>
             Get a list of all products.
             </summary>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns an array of products.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.GetProductById(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Get product by product id.
             </summary>
-            <param name="productId">The product id to return.</param>
+            <param name="id">The product id to return.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Return product where product id is equal to the provided product id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.ProductsController.DeleteProductById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Delete product with the provided id.
+            </summary>
+            <param name="id">The product id.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns delete product id.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Controllers.SalesController">
+            <summary>
+            Handles queries relating to sales.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.#ctor(ShoppingIt.Crm.Core.Services.Sales.ISalesService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Controllers.SalesController"/> class.
+            </summary>
+            <param name="salesService">Injected sales service.</param>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.AddSales(ShoppingIt.Crm.Core.Models.Sales.SaleModel,System.Threading.CancellationToken)">
             <summary>
             Add new sale record.
             </summary>
             <param name="saleModel">The sale details.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns newly created sale.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.GetSales(System.Threading.CancellationToken)">
             <summary>
             Gets all sales on record.
             </summary>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns list of sales.</returns>
         </member>
         <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.GetSaleBySaleId(System.Int32,System.Threading.CancellationToken)">
@@ -67,7 +167,154 @@
             Get order details by order id.
             </summary>
             <param name="id">The order id to return.</param>
+            <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns the order details for the specified order id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.GetSaleItems(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get sales items relating to order id.
+            </summary>
+            <param name="id">The order id.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns sales items belonging to order id.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Injection.InjectServices">
+            <summary>
+            This class will handle all the injected services for ShoppingIt.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Injection.InjectServices.InjectShoppingItServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds ShoppingIt services to service collection.
+            </summary>
+            <param name="services">The service collection.</param>
+            <returns>Returns the service collection with the ShoppingIt services.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Injection.InjectServices.InjectShoppingItAuth(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds ShoppingIt authentication middleware.
+            </summary>
+            <param name="services">The service collection.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>Returns the service collection with ShoppingIt api versioning.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Injection.InjectServices.AddShoppingItApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds ShoppingIt api versioning middleware.
+            </summary>
+            <param name="services">The service collection.</param>
+            <returns>Returns the service collection with ShoppingIt api versioning.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Injection.InjectServices.AddShoppingItDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds ShoppingIt db context.
+            </summary>
+            <param name="services">The service collection.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>Returns service collection with ShoppingIt db context.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Injection.InjectServices.AddShoppingItCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds ShoppingItCors.
+            </summary>
+            <param name="services">The service collection.</param>
+            <param name="corsPolicy">The cors policy.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>Returns service collection with cors added.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Middleware.Exceptions.ErrorDetails">
+            <summary>
+            Class to wrap error details.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Api.Middleware.Exceptions.ErrorDetails.StatusCode">
+            <summary>
+            Gets or sets the status code.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Api.Middleware.Exceptions.ErrorDetails.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Middleware.Exceptions.ErrorDetails.ToString">
+            <summary>
+            Returns error details as json string.
+            </summary>
+            <returns>Returns <see cref="T:ShoppingIt.Crm.Api.Middleware.Exceptions.ErrorDetails"/> as json string.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Middleware.Exceptions.ExceptionMiddleware">
+            <summary>
+            This class will handle all exceptions thrown in the application and map the response to the client.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Middleware.Exceptions.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Middleware.Exceptions.ExceptionMiddleware"/> class.
+            </summary>
+            <param name="next">The request delegate.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Middleware.Exceptions.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invoke the next middleware piple line.
+            </summary>
+            <param name="httpContext">The http context.</param>
+            <returns>Returns <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Middleware.Exceptions.ExceptionMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            Handles any exceptions thrown in the system.
+            </summary>
+            <param name="context">The http context.</param>
+            <param name="exception">The exception thrown.</param>
+            <returns>Returns <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Program">
+            <summary>
+            Application entry point.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Program.Main(System.String[])">
+            <summary>
+            Application entry point.
+            </summary>
+            <param name="args">Application arguments.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Create new host.
+            </summary>
+            <param name="args">Application arguments.</param>
+            <returns>Returns newly created host builder implementing <see cref="T:Microsoft.Extensions.Hosting.IHostBuilder"/>.</returns>
+        </member>
+        <member name="T:ShoppingIt.Crm.Api.Startup">
+            <summary>
+            The web api start up class.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Api.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:ShoppingIt.Crm.Api.Startup.Configuration">
+            <summary>
+            Gets the application configuration found in appsettings.json.
+            </summary>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The service collection.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="env">The web host environment.</param>
         </member>
     </members>
 </doc>

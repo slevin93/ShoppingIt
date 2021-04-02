@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Company.cs" company="ShoppingIt Ltd">
+// Copyright (c) ShoppingIt Ltd. All rights reserved.
+// </copyright>
 
 namespace ShoppingIt.Crm.Domain
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Gets or sets the company for each user.
     /// </summary>
@@ -47,7 +47,7 @@ namespace ShoppingIt.Crm.Domain
         public string AddressLine4 { get; set; }
 
         /// <summary>
-        /// The list of users assigned to this company.
+        /// Gets or sets the list of users assigned to this company.
         /// </summary>
         public virtual ICollection<Account> Accounts { get; set; }
     }
