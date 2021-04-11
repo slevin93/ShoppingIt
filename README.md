@@ -1,5 +1,7 @@
 # ShoppingIt
 
+FE: https://github.com/slevin93/ShoppingIt-Web/blob/develop/README.md
+
 ## Description
 
 ## Clone
