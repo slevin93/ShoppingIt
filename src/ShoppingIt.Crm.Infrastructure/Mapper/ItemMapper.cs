@@ -19,6 +19,10 @@ namespace ShoppingIt.Crm.Infrastructure.Mapper
         public ItemMapper()
         {
             this.CreateMap<SalesStatus, SalesStatusDetails>().ReverseMap();
+
+            this.CreateMap<PaymentType, PaymentTypeDetails>().ReverseMap();
+
+            this.CreateMap<SalesStatus, OrderStatusDetails>().ReverseMap();
         }
     }
 }

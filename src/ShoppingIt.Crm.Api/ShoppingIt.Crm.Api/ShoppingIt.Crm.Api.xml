@@ -94,6 +94,28 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns a list of sales status.</returns>
         </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.GetPaymentType(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of payment types.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns a list of cancellation tokens.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.GetPaymentTypeById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets payment type details where payment type id is equal to the provided id.
+            </summary>
+            <param name="id">The payment type id.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns payment type details where payment type is equal to provided id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.LookupsController.GetOrderStatus(System.Threading.CancellationToken)">
+            <summary>
+            Gets order status.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns list of order status.</returns>
+        </member>
         <member name="T:ShoppingIt.Crm.Api.Controllers.ProductsController">
             <summary>
             Handles queries relating to products.
@@ -186,6 +208,15 @@
             <param name="id">The order id.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns sales items belonging to order id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Api.Controllers.SalesController.UpdateSale(System.Int32,ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel,System.Threading.CancellationToken)">
+            <summary>
+            Updates sales details and sales items for provided sale id.
+            </summary>
+            <param name="id">The sale id.</param>
+            <param name="updateSaleModel">The new sale and sale item details.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns updated sale items.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Api.Injection.InjectServices">
             <summary>

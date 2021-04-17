@@ -25,7 +25,7 @@ namespace ShoppingIt.Crm.Core.Services.Products
         /// Initializes a new instance of the <see cref="ProductService"/> class.
         /// </summary>
         /// <param name="productRepository">The product repository.</param>
-        /// /// <param name="mapper">The mapper.</param>
+        /// <param name="mapper">The mapper.</param>
         public ProductService(IProductRepository productRepository, IMapper mapper)
         {
             this.productRepository = productRepository;
