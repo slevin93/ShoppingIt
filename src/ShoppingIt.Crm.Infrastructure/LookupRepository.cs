@@ -27,6 +27,24 @@ namespace ShoppingIt.Crm.Infrastructure
         }
 
         /// <inheritdoc/>
+        public Task<OrderStatusDetails[]> GetOrderStatusAsync(CancellationToken cancellationToken)
+        {
+            return this.GetArrayAsync<SalesStatus, OrderStatusDetails>(cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<PaymentTypeDetails[]> GetPaymentTypeAsync(CancellationToken cancellationToken)
+        {
+            return this.GetArrayAsync<PaymentType, PaymentTypeDetails>(cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<PaymentTypeDetails> GetPaymentTypeByIdAsync(int id, CancellationToken cancellationToken)
+        {
+            return this.FirstOrDefaultAsync<PaymentType, PaymentTypeDetails>(x => x.PaymentTypeId == id, cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public Task<SalesStatusDetails[]> GetSaleStatusAsync(CancellationToken cancellationToken)
         {
             return this.GetArrayAsync<SalesStatus, SalesStatusDetails>(cancellationToken);

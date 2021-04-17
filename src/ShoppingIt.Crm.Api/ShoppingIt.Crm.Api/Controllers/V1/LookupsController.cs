@@ -39,5 +39,39 @@ namespace ShoppingIt.Crm.Api.Controllers
         {
             return this.Ok(await this.lookupService.GetSaleStatusAsync(cancellationToken));
         }
+
+        /// <summary>
+        /// Gets list of payment types.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns a list of cancellation tokens.</returns>
+        [HttpGet("payment-types")]
+        public async Task<ActionResult<PaymentTypeDetails>> GetPaymentType(CancellationToken cancellationToken)
+        {
+            return this.Ok(await this.lookupService.GetPaymentTypeAsync(cancellationToken));
+        }
+
+        /// <summary>
+        /// Gets payment type details where payment type id is equal to the provided id.
+        /// </summary>
+        /// <param name="id">The payment type id.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns payment type details where payment type is equal to provided id.</returns>
+        [HttpGet("payment-types/{id}")]
+        public async Task<ActionResult<PaymentTypeDetails>> GetPaymentTypeById(int id, CancellationToken cancellationToken)
+        {
+            return this.Ok(await this.lookupService.GetPaymentTypeByIdAsync(id, cancellationToken));
+        }
+
+        /// <summary>
+        /// Gets order status.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Returns list of order status.</returns>
+        [HttpGet("order-status")]
+        public async Task<ActionResult<OrderStatusDetails>> GetOrderStatus(CancellationToken cancellationToken)
+        {
+            return this.Ok(await this.lookupService.GetSaleStatusAsync(cancellationToken));
+        }
     }
 }

@@ -60,5 +60,14 @@ namespace ShoppingIt.Crm.Core.Services.Sales
         /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
         /// <returns>Return sales details.</returns>
         Task<SalesDetails> GetSaleItemByIdAsync(int id, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update sale details and sale items for the provided sale id.
+        /// </summary>
+        /// <param name="saleId">The sale id.</param>
+        /// <param name="updateSaleModel">The updated sale details and sales list.</param>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
+        /// <returns>Returns updates sale details.</returns>
+        Task<SalesDetails> UpdateSaleAsync(int saleId, UpdateSaleModel updateSaleModel, CancellationToken cancellationToken);
     }
 }

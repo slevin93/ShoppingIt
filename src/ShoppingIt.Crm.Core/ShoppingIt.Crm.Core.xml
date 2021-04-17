@@ -124,6 +124,46 @@
             Gets or sets the item description.
             </summary>
         </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Lookup.OrderStatusDetails">
+            <summary>
+            Defines the sale status.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.OrderStatusDetails.SalesStatusId">
+            <summary>
+            Gets or sets the sales status id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.OrderStatusDetails.Name">
+            <summary>
+            Gets or sets the status name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.OrderStatusDetails.Description">
+            <summary>
+            Gets or sets the sales status description.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Dto.Lookup.PaymentTypeDetails">
+            <summary>
+            Defines the payment types.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.PaymentTypeDetails.PaymentTypeId">
+            <summary>
+            Gets or sets the payment type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.PaymentTypeDetails.Name">
+            <summary>
+            Gets or sets the payment name.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Lookup.PaymentTypeDetails.Description">
+            <summary>
+            Gets or sets the payment description.
+            </summary>
+        </member>
         <member name="T:ShoppingIt.Crm.Core.Dto.Lookup.SalesStatusDetails">
             <summary>
             Defines sales status.
@@ -201,7 +241,7 @@
         </member>
         <member name="T:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails">
             <summary>
-            Defines sales details.
+            Defines the sales details.
             </summary>
         </member>
         <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.SaleId">
@@ -212,6 +252,16 @@
         <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.AccountId">
             <summary>
             Gets or sets the account id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.PaymentTypeId">
+            <summary>
+            Gets or sets the payment type id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.SalesStatusId">
+            <summary>
+            Gets or sets the sales status id.
             </summary>
         </member>
         <member name="P:ShoppingIt.Crm.Core.Dto.Sales.SalesDetails.TimeStamp">
@@ -471,6 +521,56 @@
             Gets or sets the products assigned to the sale record.
             </summary>
         </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleDetailsModel">
+            <summary>
+            Represents sale details to update.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleDetailsModel.SaleId">
+            <summary>
+            Gets or sets the sale id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleDetailsModel.PaymentTypeId">
+            <summary>
+            Gets or sets the payment type.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleDetailsModel.SalesStatusId">
+            <summary>
+            Gets or sets the sales status id.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleItemModel">
+            <summary>
+            Represents sale items to update.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleItemModel.SaleItemId">
+            <summary>
+            Gets or sets sale item id.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleItemModel.Quantity">
+            <summary>
+            Gets or sets the quantity of items.
+            </summary>
+        </member>
+        <member name="T:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel">
+            <summary>
+            Define sale order and items to update.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel.Sale">
+            <summary>
+            Gets or sets the new sale value.
+            </summary>
+        </member>
+        <member name="P:ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel.SaleItems">
+            <summary>
+            Gets or sets the new sale items list.
+            </summary>
+        </member>
         <member name="T:ShoppingIt.Crm.Core.Models.Validator">
             <summary>
             Base class for fluent validation.
@@ -535,6 +635,28 @@
             </summary>
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Returns array of sales status.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ILookupRepository.GetPaymentTypeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of payment types.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns array of payment types.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ILookupRepository.GetPaymentTypeByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets payment type where the payment type is equal to the provided payment type.
+            </summary>
+            <param name="id">The payment type.</param>
+            <param name="cancellationToken">The Cancellation token.</param>
+            <returns>Returns the payment type where the id matches the provided id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ILookupRepository.GetOrderStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of sales status.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns array of order status.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Core.Repository.IProductRepository">
             <summary>
@@ -642,6 +764,32 @@
             <param name="saleId">The sale id.</param>
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Returns an array of sale items where sale id equals provided sale id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.UpdateSaleAsync(System.Int32,ShoppingIt.Crm.Domain.Sale,System.Threading.CancellationToken)">
+            <summary>
+            Update sale details with new values.
+            </summary>
+            <param name="saleId">The sale id.</param>
+            <param name="sale">The new sale value.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly updates sale details.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.UpdateSaleItemAsync(System.Int32,ShoppingIt.Crm.Domain.SaleItem,System.Threading.CancellationToken)">
+            <summary>
+            Update sale items with new values.
+            </summary>
+            <param name="saleItemId">The sale item id.</param>
+            <param name="saleItem">The new sale item.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns newly updates sale item.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Repository.ISalesRepository.GetSaleItemBySaleItemIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets sale item where sale item id equals provided sale item.
+            </summary>
+            <param name="saleItemId">The sale item.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns sale item where sale item id equals provided sales item.</returns>
         </member>
         <member name="T:ShoppingIt.Crm.Core.Services.Accounts.AccountService">
             <summary>
@@ -805,6 +953,28 @@
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Returns array of sales status.</returns>
         </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.ILookupService.GetPaymentTypeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of payment types.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns array of payment types.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.ILookupService.GetPaymentTypeByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets payment type where the payment type is equal to the provided payment type.
+            </summary>
+            <param name="id">The payment type.</param>
+            <param name="cancellationToken">The Cancellation token.</param>
+            <returns>Returns the payment type where the id matches the provided id.</returns>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.ILookupService.GetOrderStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets list of sales status.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Returns array of order status.</returns>
+        </member>
         <member name="T:ShoppingIt.Crm.Core.Services.LookupService">
             <summary>
             Implements lookup service operations.
@@ -815,6 +985,15 @@
             Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.LookupService"/> class.
             </summary>
             <param name="repository">The loopup reposutory.</param>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.LookupService.GetOrderStatusAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.LookupService.GetPaymentTypeAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.LookupService.GetPaymentTypeByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.LookupService.GetSaleStatusAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -884,7 +1063,7 @@
             Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Products.ProductService"/> class.
             </summary>
             <param name="productRepository">The product repository.</param>
-            /// <param name="mapper">The mapper.</param>
+            <param name="mapper">The mapper.</param>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.Products.ProductService.AddProductAsync(ShoppingIt.Crm.Core.Models.Product.ProductModel,System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -956,17 +1135,27 @@
             <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
             <returns>Return sales details.</returns>
         </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.ISalesService.UpdateSaleAsync(System.Int32,ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel,System.Threading.CancellationToken)">
+            <summary>
+            Update sale details and sale items for the provided sale id.
+            </summary>
+            <param name="saleId">The sale id.</param>
+            <param name="updateSaleModel">The updated sale details and sales list.</param>
+            <param name="cancellationToken">The cancellation token <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>Returns updates sale details.</returns>
+        </member>
         <member name="T:ShoppingIt.Crm.Core.Services.Sales.SalesService">
             <summary>
             The sales service.
             </summary>
         </member>
-        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.#ctor(ShoppingIt.Crm.Core.Repository.ISalesRepository,ShoppingIt.Crm.Core.Services.Products.IProductService)">
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.#ctor(ShoppingIt.Crm.Core.Repository.ISalesRepository,ShoppingIt.Crm.Core.Services.Products.IProductService,AutoMapper.IMapper)">
             <summary>
             Initializes a new instance of the <see cref="T:ShoppingIt.Crm.Core.Services.Sales.SalesService"/> class.
             </summary>
             <param name="salesRepository">The sales repository.</param>
-            <param name="productService">The product repository.</param>
+            <param name="productService">The product service.</param>
+            <param name="mapper">The mapper.</param>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.AddItemToSaleAsync(ShoppingIt.Crm.Core.Models.Sales.SaleItemModel,System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -984,6 +1173,9 @@
             <inheritdoc/>
         </member>
         <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Core.Services.Sales.SalesService.UpdateSaleAsync(System.Int32,ShoppingIt.Crm.Core.Models.Sales.UpdateSaleModel,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
     </members>

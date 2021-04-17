@@ -8,6 +8,7 @@ namespace ShoppingIt.Crm.Infrastructure
     using System.Threading.Tasks;
     using AutoMapper;
     using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Core.Models.Sales;
     using ShoppingIt.Crm.Core.Repository;
     using ShoppingIt.Crm.Domain;
 
@@ -51,6 +52,12 @@ namespace ShoppingIt.Crm.Infrastructure
         }
 
         /// <inheritdoc/>
+        public Task<SalesItemDetails> GetSaleItemBySaleItemIdAsync(int saleItemId, CancellationToken cancellationToken)
+        {
+            return this.FirstOrDefaultAsync<SaleItem, SalesItemDetails>(x => x.SaleItemId == saleItemId, cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public Task<SalesDetails[]> GetSalesAsync(CancellationToken cancellationToken)
         {
             return this.GetArrayAsync<Sale, SalesDetails>(cancellationToken);
@@ -60,6 +67,20 @@ namespace ShoppingIt.Crm.Infrastructure
         public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId, CancellationToken cancellationToken)
         {
             return this.GetArrayAsync<SaleItem, SalesItemDetails>(x => x.SaleId == saleId, cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<SalesDetails> UpdateSaleAsync(int saleId, Sale sale, CancellationToken cancellationToken)
+        {
+            sale.SaleId = saleId;
+
+            return this.UpdateAsync<Sale, SalesDetails>(saleId, sale, cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<SalesItemDetails> UpdateSaleItemAsync(int saleItemId, SaleItem saleItem, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

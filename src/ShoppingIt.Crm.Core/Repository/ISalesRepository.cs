@@ -7,6 +7,7 @@ namespace ShoppingIt.Crm.Core.Repository
     using System.Threading;
     using System.Threading.Tasks;
     using ShoppingIt.Crm.Core.Dto.Sales;
+    using ShoppingIt.Crm.Core.Models.Sales;
     using ShoppingIt.Crm.Domain;
 
     /// <summary>
@@ -60,5 +61,31 @@ namespace ShoppingIt.Crm.Core.Repository
         /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
         /// <returns>Returns an array of sale items where sale id equals provided sale id.</returns>
         Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update sale details with new values.
+        /// </summary>
+        /// <param name="saleId">The sale id.</param>
+        /// <param name="sale">The new sale value.</param>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
+        /// <returns>Returns newly updates sale details.</returns>
+        Task<SalesDetails> UpdateSaleAsync(int saleId, Sale sale, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Update sale items with new values.
+        /// </summary>
+        /// <param name="saleItemId">The sale item id.</param>
+        /// <param name="saleItem">The new sale item.</param>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
+        /// <returns>Returns newly updates sale item.</returns>
+        Task<SalesItemDetails> UpdateSaleItemAsync(int saleItemId, SaleItem saleItem, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Gets sale item where sale item id equals provided sale item.
+        /// </summary>
+        /// <param name="saleItemId">The sale item.</param>
+        /// <param name="cancellationToken">The cancellation token <see cref="CancellationToken"/>.</param>
+        /// <returns>Returns sale item where sale item id equals provided sales item.</returns>
+        Task<SalesItemDetails> GetSaleItemBySaleItemIdAsync(int saleItemId, CancellationToken cancellationToken);
     }
 }

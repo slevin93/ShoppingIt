@@ -55,6 +55,15 @@
             <param name="context">The ShoppingIt db context.</param>
             <param name="mapper">The mapper.</param>
         </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.GetOrderStatusAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.GetPaymentTypeAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.GetPaymentTypeByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="M:ShoppingIt.Crm.Infrastructure.LookupRepository.GetSaleStatusAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
@@ -263,10 +272,19 @@
         <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSaleByIdAsync(System.Int32,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSaleItemBySaleItemIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSalesAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.GetSalesItemBySaleIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.UpdateSaleAsync(System.Int32,ShoppingIt.Crm.Domain.Sale,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ShoppingIt.Crm.Infrastructure.SalesRepository.UpdateSaleItemAsync(System.Int32,ShoppingIt.Crm.Domain.SaleItem,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:ShoppingIt.Crm.Infrastructure.ShoppingItContext">

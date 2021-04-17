@@ -7,7 +7,7 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
     using System;
 
     /// <summary>
-    /// Defines sales details.
+    /// Defines the sales details.
     /// </summary>
     public class SalesDetails
     {
@@ -20,6 +20,16 @@ namespace ShoppingIt.Crm.Core.Dto.Sales
         /// Gets or sets the account id.
         /// </summary>
         public int AccountId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the payment type id.
+        /// </summary>
+        public int PaymentTypeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sales status id.
+        /// </summary>
+        public int SalesStatusId { get; set; }
 
         /// <summary>
         /// Gets or sets the time stamp.

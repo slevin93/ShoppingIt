@@ -8,6 +8,7 @@ namespace ShoppingIt.Crm.Core.Services.Sales
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
+    using AutoMapper;
     using ShoppingIt.Crm.Core.Dto.Sales;
     using ShoppingIt.Crm.Core.Models.Sales;
     using ShoppingIt.Crm.Core.Repository;
@@ -21,16 +22,19 @@ namespace ShoppingIt.Crm.Core.Services.Sales
     {
         private readonly ISalesRepository salesRepository;
         private readonly IProductService productService;
+        private readonly IMapper mapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SalesService"/> class.
         /// </summary>
         /// <param name="salesRepository">The sales repository.</param>
-        /// <param name="productService">The product repository.</param>
-        public SalesService(ISalesRepository salesRepository, IProductService productService)
+        /// <param name="productService">The product service.</param>
+        /// <param name="mapper">The mapper.</param>
+        public SalesService(ISalesRepository salesRepository, IProductService productService, IMapper mapper)
         {
             this.salesRepository = salesRepository;
             this.productService = productService;
+            this.mapper = mapper;
         }
 
         /// <inheritdoc/>
@@ -125,6 +129,22 @@ namespace ShoppingIt.Crm.Core.Services.Sales
         public Task<SalesItemDetails[]> GetSalesItemBySaleIdAsync(int saleId, CancellationToken cancellationToken)
         {
             return this.salesRepository.GetSalesItemBySaleIdAsync(saleId, cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public async Task<SalesDetails> UpdateSaleAsync(int saleId, UpdateSaleModel updateSaleModel, CancellationToken cancellationToken)
+        {
+            var saleDetails = await this.salesRepository.GetSaleByIdAsync(saleId, cancellationToken);
+
+            if (saleDetails is null)
+            {
+                throw new Exception("No sale details found with provided id.");
+            }
+
+            saleDetails.PaymentTypeId = updateSaleModel.Sale.PaymentTypeId;
+            saleDetails.SalesStatusId = updateSaleModel.Sale.SalesStatusId;
+
+            return await this.salesRepository.UpdateSaleAsync(saleId, this.mapper.Map<Sale>(saleDetails), cancellationToken);
         }
     }
 }
